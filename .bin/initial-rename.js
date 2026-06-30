@@ -1,4 +1,4 @@
-const replace = require('replace-in-file');
+const { replaceInFile } = require('replace-in-file');
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
@@ -25,15 +25,15 @@ const options = {
 		/companydomain-wbtb/g,
 	],
 	to: [
-		'your-renamed-theme' /******************** replace with your theme details */,
-		'your_renamed_theme',
-		'YOUR_RENAMED_THEME',
-		'YOUR-RENAMED-THEME',
-		'Your-Renamed-Theme',
-		'Your_Renamed_Theme',
-		'YourRenamedTheme',
-		'Your Renamed Theme',
-		'companyname-your-renamed-theme', //can use brandname as prefix
+	'theme-lab',
+	'theme_lab',
+	'THEME_LAB',
+	'THEME-LAB',
+	'Theme-Lab',
+	'Theme_Lab',
+	'ThemeLab',
+	'Theme Lab',
+	'prativa-theme-lab',
 	],
 	verbose: true,
 	dry: false,
@@ -49,7 +49,7 @@ async function renamePHPFiles() {
 			const baseName = path.basename(file);
 			const newBaseName = baseName.replace(
 				/wp-block-theme-boilerplate/gi,
-				'your-renamed-theme' /******************** replace with your theme details */
+				'theme-lab' /******************** replace with your theme details */
 			);
 			const newFileName = path.join(dir, newBaseName);
 
@@ -73,7 +73,7 @@ async function renamePHPFiles() {
 
 async function main() {
 	try {
-		const results = await replace(options);
+		const results = await replaceInFile(options);
 		console.log('Replacement results:', results);
 		await renamePHPFiles();
 		console.log('');

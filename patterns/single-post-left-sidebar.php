@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Single Left Sidebar
- * Slug: wp-block-theme-boilerplate/single-post-left-sidebar
+ * Slug: theme-lab/single-post-left-sidebar
  * Template Types: single
  * Description: A layout template for displaying a post with a left sidebar.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -29,7 +29,7 @@
 		<!-- wp:column {"width":"70%"} -->
 		<div class="wp-block-column" style="flex-basis:70%">
 
-			<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/hidden-single-post-content"} /-->
+			<!-- wp:pattern {"slug":"theme-lab/hidden-single-post-content"} /-->
 
 		</div>
 		<!-- /wp:column -->

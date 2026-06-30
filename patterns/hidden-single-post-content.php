@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Single Post
- * Slug: wp-block-theme-boilerplate/hidden-single-post-content
+ * Slug: theme-lab/hidden-single-post-content
  * Inserter: no
  * Categories: posts
  * Description: A layout that displays single post content with post navigation and comments.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

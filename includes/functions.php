@@ -6,12 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Reusable functions.
  *
- * @package Wp_Block_Theme_Boilerplate
+ * @package Theme_Lab
  * @since 1.0.0
  * @author     codersantosh <codersantosh@gmail.com>
  */
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_get_recommended_plugins' ) ) :
+if ( ! function_exists( 'theme_lab_get_recommended_plugins' ) ) :
 	/**
 	 * Get the list of recommended plugins.
 	 *
@@ -21,21 +21,21 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_recommended_plugins' ) )
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_get_recommended_plugins() {
+	function theme_lab_get_recommended_plugins() {
 		$plugins = array(
 			array(
-				'name'   => esc_html__( 'Advanced Import', 'wp-block-theme-boilerplate' ),
+				'name'   => esc_html__( 'Advanced Import', 'theme-lab' ),
 				'slug'   => 'advanced-import',
 				'plugin' => 'advanced-import/advanced-import.php',
 				'url'    => 'https://wordpress.org/plugins/advanced-import/',
 			),
 		);
 
-		return apply_filters( 'wp_block_theme_boilerplate_recommended_plugins', $plugins );
+		return apply_filters( 'theme_lab_recommended_plugins', $plugins );
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_is_plugin_active' ) ) {
+if ( ! function_exists( 'theme_lab_is_plugin_active' ) ) {
 	/**
 	 * Checks if a given plugin is active.
 	 *
@@ -44,27 +44,27 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_is_plugin_active' ) ) {
 	 * @param string $plugin Plugin folder with main file e.g., my-plugin/my-plugin.php.
 	 * @return bool True if the plugin is active, otherwise false.
 	 */
-	function wp_block_theme_boilerplate_is_plugin_active( $plugin ) {
+	function theme_lab_is_plugin_active( $plugin ) {
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
 		return is_plugin_active( $plugin );
 	}
 }
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
+if ( ! function_exists( 'theme_lab_install_plugin' ) ) {
 	/**
 	 * Install and activate a WordPress plugin.
 	 *
 	 * @param array $plugin_info Plugin information array containing 'name', 'slug', 'plugin', and 'source'(optional).
 	 * @return array Associative array with 'success' boolean and 'message' string.
 	 */
-	function wp_block_theme_boilerplate_install_plugin( $plugin_info ) {
+	function theme_lab_install_plugin( $plugin_info ) {
 		if ( ! isset( $plugin_info['name'] ) || ! isset( $plugin_info['slug'] ) || ! isset( $plugin_info['plugin'] ) ) {
 			// Not enough plugin info.
 			return array(
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %s the plugin info */
-					esc_html__( 'Not enough information about plugin. Plugin info %s', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Not enough information about plugin. Plugin info %s', 'theme-lab' ),
 					esc_html( wp_json_encode( $plugin_info ) )
 				),
 			);
@@ -80,13 +80,13 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-		if ( wp_block_theme_boilerplate_is_plugin_active( $plugin ) ) {
+		if ( theme_lab_is_plugin_active( $plugin ) ) {
 			// Plugin is already active.
 			return array(
 				'success' => true,
 				'message' => sprintf(
 					/* translators: %s is the plugin name */
-					esc_html__( 'Plugin "%s" is already active.', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Plugin "%s" is already active.', 'theme-lab' ),
 					esc_html( $name )
 				),
 			);
@@ -96,13 +96,13 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 		if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin ) ) {
 			$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
 
-			if ( wp_block_theme_boilerplate_is_plugin_active( $plugin ) ) {
+			if ( theme_lab_is_plugin_active( $plugin ) ) {
 				// Plugin is already active.
 				return array(
 					'success' => true,
 					'message' => sprintf(
 						/* translators: %s is the plugin name */
-						esc_html__( 'Plugin "%s" is already active.', 'wp-block-theme-boilerplate' ),
+						esc_html__( 'Plugin "%s" is already active.', 'theme-lab' ),
 						esc_html( $name )
 					),
 				);
@@ -116,7 +116,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 						'success' => false,
 						'message' => sprintf(
 							/* translators: %1$s is the plugin name, %2$s is error message */
-							esc_html__( 'Error activating plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+							esc_html__( 'Error activating plugin "%1$s": %2$s', 'theme-lab' ),
 							esc_html( $name ),
 							esc_html( $result->get_error_message() )
 						),
@@ -127,7 +127,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 					'success' => true,
 					'message' => sprintf(
 						/* translators: %s is the plugin name.*/
-						esc_html__( 'Plugin "%s" activated successfully.', 'wp-block-theme-boilerplate' ),
+						esc_html__( 'Plugin "%s" activated successfully.', 'theme-lab' ),
 						esc_html( $name ),
 					),
 				);
@@ -136,7 +136,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 					'success' => false,
 					'message' => sprintf(
 						/* translators: %s is the plugin name.*/
-						esc_html__( 'You don\'t have permission to activate the plugin "%s".', 'wp-block-theme-boilerplate' ),
+						esc_html__( 'You don\'t have permission to activate the plugin "%s".', 'theme-lab' ),
 						esc_html( $name ),
 					),
 				);
@@ -161,7 +161,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 					'success' => false,
 					'message' => sprintf(
 						/* translators: %1$s is the plugin name, %2$s is error message */
-						esc_html__( 'Error retrieving information for plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+						esc_html__( 'Error retrieving information for plugin "%1$s": %2$s', 'theme-lab' ),
 						esc_html( $name ),
 						esc_html( $api->get_error_message() )
 					),
@@ -180,7 +180,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %1$s is the plugin name, %2$s is error message */
-					esc_html__( 'Error installing plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Error installing plugin "%1$s": %2$s', 'theme-lab' ),
 					esc_html( $name ),
 					esc_html( $result->get_error_message() )
 				),
@@ -190,7 +190,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %1$s is the plugin name, %2$s is error message */
-					esc_html__( 'Error installing plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Error installing plugin "%1$s": %2$s', 'theme-lab' ),
 					esc_html( $name ),
 					esc_html( $skin->result->get_error_message() )
 				),
@@ -200,7 +200,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %1$s is the plugin name, %2$s is error message */
-					esc_html__( 'Error installing plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Error installing plugin "%1$s": %2$s', 'theme-lab' ),
 					esc_html( $name ),
 					esc_html( $skin->get_error_messages() )
 				),
@@ -210,7 +210,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 			WP_Filesystem();
 			global $wp_filesystem;
 
-			$error_message = __( 'Unable to connect to the filesystem. Please confirm your credentials.', 'wp-block-theme-boilerplate' );
+			$error_message = __( 'Unable to connect to the filesystem. Please confirm your credentials.', 'theme-lab' );
 
 			if ( $wp_filesystem instanceof WP_Filesystem_Base && is_wp_error( $wp_filesystem->errors ) && $wp_filesystem->errors->get_error_code() ) {
 				$error_message = $wp_filesystem->errors->get_error_message();
@@ -220,20 +220,20 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %1$s is the plugin name, %2$s is error message */
-					esc_html__( 'Error installing plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Error installing plugin "%1$s": %2$s', 'theme-lab' ),
 					esc_html( $name ),
 					esc_html( $error_message )
 				),
 			);
 		}
 
-		if ( wp_block_theme_boilerplate_is_plugin_active( $plugin ) ) {
+		if ( theme_lab_is_plugin_active( $plugin ) ) {
 			// Plugin is already active.
 			return array(
 				'success' => true,
 				'message' => sprintf(
 					/* translators: %s is the plugin name.*/
-					esc_html__( 'Plugin "%s" activated successfully.', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'Plugin "%s" activated successfully.', 'theme-lab' ),
 					esc_html( $name ),
 				),
 			);
@@ -247,7 +247,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 					'success' => false,
 					'message' => sprintf(
 					/* translators: %1$s is the plugin name, %2$s is error message */
-						esc_html__( 'Error activating plugin "%1$s": %2$s', 'wp-block-theme-boilerplate' ),
+						esc_html__( 'Error activating plugin "%1$s": %2$s', 'theme-lab' ),
 						esc_html( $name ),
 						esc_html( $result->get_error_message() )
 					),
@@ -258,7 +258,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 				'success' => false,
 				'message' => sprintf(
 					/* translators: %s is the plugin name.*/
-					esc_html__( 'You don\'t have permission to activate the plugin "%s".', 'wp-block-theme-boilerplate' ),
+					esc_html__( 'You don\'t have permission to activate the plugin "%s".', 'theme-lab' ),
 					esc_html( $name ),
 				),
 			);
@@ -268,14 +268,14 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_install_plugin' ) ) {
 			'success' => true,
 			'message' => sprintf(
 				/* translators: %s is the plugin name.*/
-				esc_html__( 'Plugin "%s" installed and activated successfully.', 'wp-block-theme-boilerplate' ),
+				esc_html__( 'Plugin "%s" installed and activated successfully.', 'theme-lab' ),
 				esc_html( $name ),
 			),
 		);
 	}
 }
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_get_plugin_names' ) ) :
+if ( ! function_exists( 'theme_lab_get_plugin_names' ) ) :
 	/**
 	 * Get the list of recommended plugins names.
 	 *
@@ -285,12 +285,12 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_plugin_names' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_get_plugin_names() {
-		$plugins = wp_block_theme_boilerplate_get_recommended_plugins();
+	function theme_lab_get_plugin_names() {
+		$plugins = theme_lab_get_recommended_plugins();
 		$names   = array();
 
 		foreach ( $plugins as $plugin ) {
-			if ( ! wp_block_theme_boilerplate_is_plugin_active( $plugin['plugin'] ) ) {
+			if ( ! theme_lab_is_plugin_active( $plugin['plugin'] ) ) {
 				$names[] = $plugin['name'];
 			}
 		}
@@ -302,7 +302,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_plugin_names' ) ) :
 			if ( $count > 1 ) {
 				$last_name     = array_pop( $names );
 				$names_string  = implode( ', ', $names );
-				$names_string .= ' ' . esc_html__( 'and', 'wp-block-theme-boilerplate' ) . ' ' . $last_name;
+				$names_string .= ' ' . esc_html__( 'and', 'theme-lab' ) . ' ' . $last_name;
 			} else {
 				$names_string = $names[0];
 			}
@@ -312,7 +312,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_plugin_names' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_default_options' ) ) :
+if ( ! function_exists( 'theme_lab_default_options' ) ) :
 	/**
 	 * Get the Theme Default Options.
 	 *
@@ -322,17 +322,17 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_default_options' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_default_options() {
+	function theme_lab_default_options() {
 		$default_theme_options = array(
 			'hide_get_started_notice'   => false,
 			'theme_installed_date_time' => time(),
 		);
 
-		return apply_filters( 'wp_block_theme_boilerplate_default_options', $default_theme_options );
+		return apply_filters( 'theme_lab_default_options', $default_theme_options );
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_get_options' ) ) :
+if ( ! function_exists( 'theme_lab_get_options' ) ) :
 
 	/**
 	 * Get the Theme Saved Options.
@@ -345,10 +345,10 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_options' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_get_options( $key = '' ) {
-		$options = get_option( WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME );
+	function theme_lab_get_options( $key = '' ) {
+		$options = get_option( THEME_LAB_OPTION_NAME );
 
-		$default_options = wp_block_theme_boilerplate_default_options();
+		$default_options = theme_lab_default_options();
 
 		if ( ! empty( $key ) ) {
 			if ( isset( $options[ $key ] ) ) {
@@ -365,7 +365,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_options' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_update_options' ) ) :
+if ( ! function_exists( 'theme_lab_update_options' ) ) :
 	/**
 	 * Update the Theme Options.
 	 *
@@ -378,18 +378,18 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_update_options' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_update_options( $key_or_data, $val = '' ) {
+	function theme_lab_update_options( $key_or_data, $val = '' ) {
 		if ( is_string( $key_or_data ) ) {
-			$options                 = wp_block_theme_boilerplate_get_options();
+			$options                 = theme_lab_get_options();
 			$options[ $key_or_data ] = $val;
 		} else {
 			$options = $key_or_data;
 		}
-		update_option( WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME, $options );
+		update_option( THEME_LAB_OPTION_NAME, $options );
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_default_user_meta' ) ) :
+if ( ! function_exists( 'theme_lab_default_user_meta' ) ) :
 	/**
 	 * Get the User Default Meta.
 	 *
@@ -399,17 +399,17 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_default_user_meta' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_default_user_meta() {
+	function theme_lab_default_user_meta() {
 		$default_user_meta = array(
 			'remove_review_notice_permanently'         => false,
 			'remove_review_notice_temporary_date_time' => 0,
 		);
 
-		return apply_filters( 'wp_block_theme_boilerplate_default_user_meta', $default_user_meta );
+		return apply_filters( 'theme_lab_default_user_meta', $default_user_meta );
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_get_user_meta' ) ) :
+if ( ! function_exists( 'theme_lab_get_user_meta' ) ) :
 	/**
 	 * Get the User Meta.
 	 *
@@ -422,10 +422,10 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_user_meta' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_get_user_meta( $user_id, $key = '' ) {
-		$options = get_user_meta( $user_id, WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME, true );
+	function theme_lab_get_user_meta( $user_id, $key = '' ) {
+		$options = get_user_meta( $user_id, THEME_LAB_OPTION_NAME, true );
 
-		$default_options = wp_block_theme_boilerplate_default_user_meta();
+		$default_options = theme_lab_default_user_meta();
 
 		if ( ! empty( $key ) ) {
 			if ( isset( $options[ $key ] ) ) {
@@ -442,7 +442,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_user_meta' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_update_user_meta' ) ) :
+if ( ! function_exists( 'theme_lab_update_user_meta' ) ) :
 	/**
 	 * Update the User Meta.
 	 *
@@ -456,8 +456,8 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_update_user_meta' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_update_user_meta( $user_id, $key_or_data, $val = '' ) {
-		$options = wp_block_theme_boilerplate_get_user_meta( $user_id );
+	function theme_lab_update_user_meta( $user_id, $key_or_data, $val = '' ) {
+		$options = theme_lab_get_user_meta( $user_id );
 
 		if ( is_string( $key_or_data ) ) {
 			$options[ $key_or_data ] = $val;
@@ -465,11 +465,11 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_update_user_meta' ) ) :
 			$options = array_merge( $options, $key_or_data );
 		}
 
-		return update_user_meta( $user_id, WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME, $options );
+		return update_user_meta( $user_id, THEME_LAB_OPTION_NAME, $options );
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_file_system' ) ) {
+if ( ! function_exists( 'theme_lab_file_system' ) ) {
 	/**
 	 *
 	 * WordPress file system wrapper
@@ -480,7 +480,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_file_system' ) ) {
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_file_system() {
+	function theme_lab_file_system() {
 		global $wp_filesystem;
 		if ( ! $wp_filesystem ) {
 			require_once ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'file.php';
@@ -491,7 +491,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_file_system' ) ) {
 	}
 }
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_parse_changelog' ) ) :
+if ( ! function_exists( 'theme_lab_parse_changelog' ) ) :
 	/**
 	 * Parse the changelog section from the theme's readme.txt.
 	 *
@@ -505,13 +505,13 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_parse_changelog' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_parse_changelog() {
+	function theme_lab_parse_changelog() {
 
-		$wp_filesystem = wp_block_theme_boilerplate_file_system();
+		$wp_filesystem = theme_lab_file_system();
 
 		$changelog_file = apply_filters(
-			'wp_block_theme_boilerplate_changelog_file',
-			WP_BLOCK_THEME_BOILERPLATE_PATH . 'readme.txt'
+			'theme_lab_changelog_file',
+			THEME_LAB_PATH . 'readme.txt'
 		);
 
 		/* Check if the changelog file exists and is readable. */
@@ -541,7 +541,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_parse_changelog' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_get_theme_faq' ) ) :
+if ( ! function_exists( 'theme_lab_get_theme_faq' ) ) :
 	/**
 	 * Get FAQ for this theme.
 	 * It is used on the theme page.
@@ -551,37 +551,37 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_get_theme_faq' ) ) :
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_get_theme_faq() {
+	function theme_lab_get_theme_faq() {
 		$faq = array(
 			array(
-				'q' => esc_html__( 'How can I customize the theme header?', 'wp-block-theme-boilerplate' ),
-				'a' => esc_html__( 'You can customize the theme header by editing the Header template part in the Site Editor. Go to Appearance > Editor > Patterns > Header, then select and edit the Header template part.', 'wp-block-theme-boilerplate' ),
+				'q' => esc_html__( 'How can I customize the theme header?', 'theme-lab' ),
+				'a' => esc_html__( 'You can customize the theme header by editing the Header template part in the Site Editor. Go to Appearance > Editor > Patterns > Header, then select and edit the Header template part.', 'theme-lab' ),
 			),
 			array(
-				'q' => esc_html__( 'How do I change the footer credits?', 'wp-block-theme-boilerplate' ),
-				'a' => esc_html__( 'To change the footer credits, go to  Appearance > Editor > Patterns > Footer, then select and edit the Footer template part. You can add your own text or remove the existing credits.', 'wp-block-theme-boilerplate' ),
+				'q' => esc_html__( 'How do I change the footer credits?', 'theme-lab' ),
+				'a' => esc_html__( 'To change the footer credits, go to  Appearance > Editor > Patterns > Footer, then select and edit the Footer template part. You can add your own text or remove the existing credits.', 'theme-lab' ),
 			),
 			array(
-				'q' => esc_html__( 'Does this theme support block patterns?', 'wp-block-theme-boilerplate' ),
-				'a' => esc_html__( 'Yes, this theme includes several pre-designed block patterns that you can use to quickly create layouts. You can find these patterns in the block inserter.', 'wp-block-theme-boilerplate' ),
+				'q' => esc_html__( 'Does this theme support block patterns?', 'theme-lab' ),
+				'a' => esc_html__( 'Yes, this theme includes several pre-designed block patterns that you can use to quickly create layouts. You can find these patterns in the block inserter.', 'theme-lab' ),
 			),
 			array(
-				'q' => esc_html__( 'How can I create custom templates?', 'wp-block-theme-boilerplate' ),
-				'a' => esc_html__( 'You can create custom templates by going to Appearance > Editor > Templates, then click Add New Template. You can then design your custom template using blocks.', 'wp-block-theme-boilerplate' ),
+				'q' => esc_html__( 'How can I create custom templates?', 'theme-lab' ),
+				'a' => esc_html__( 'You can create custom templates by going to Appearance > Editor > Templates, then click Add New Template. You can then design your custom template using blocks.', 'theme-lab' ),
 			),
 			array(
-				'q' => esc_html__( 'How do I use global styles?', 'wp-block-theme-boilerplate' ),
-				'a' => esc_html__( 'To use global styles, go to Appearance > Editor > Styles, then click on the Edit icon in the top right side of Styles. From there, you can customize the colors, typography, and layout for your entire site.', 'wp-block-theme-boilerplate' ),
+				'q' => esc_html__( 'How do I use global styles?', 'theme-lab' ),
+				'a' => esc_html__( 'To use global styles, go to Appearance > Editor > Styles, then click on the Edit icon in the top right side of Styles. From there, you can customize the colors, typography, and layout for your entire site.', 'theme-lab' ),
 			),
 		);
 		return apply_filters(
-			'wp_block_theme_boilerplate_faq',
+			'theme_lab_faq',
 			$faq
 		);
 	}
 endif;
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_is_pro_active' ) ) {
+if ( ! function_exists( 'theme_lab_is_pro_active' ) ) {
 	/**
 	 *
 	 * Check if premium version of the theme is active.
@@ -592,7 +592,7 @@ if ( ! function_exists( 'wp_block_theme_boilerplate_is_pro_active' ) ) {
 	 *
 	 * @author     codersantosh <codersantosh@gmail.com>
 	 */
-	function wp_block_theme_boilerplate_is_pro_active() {
-		return function_exists( 'wp_block_theme_boilerplate_pro_run' );
+	function theme_lab_is_pro_active() {
+		return function_exists( 'theme_lab_pro_run' );
 	}
 }

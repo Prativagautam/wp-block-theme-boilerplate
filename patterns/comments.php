@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Comments
- * Slug: wp-block-theme-boilerplate/comments
+ * Slug: theme-lab/comments
  * Categories: posts
  * Description: Display post comments.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -16,7 +16,7 @@
 <div class="wp-block-comments">
 
 <!-- wp:heading {"level":3,"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|20"},"margin":{"bottom":"0px"}}}} -->
-<h3 class="wp-block-heading" style="margin-bottom:0px;padding-bottom:var(--wp--preset--spacing--20)"><?php esc_html_e( 'Comments', 'wp-block-theme-boilerplate' ); ?>
+<h3 class="wp-block-heading" style="margin-bottom:0px;padding-bottom:var(--wp--preset--spacing--20)"><?php esc_html_e( 'Comments', 'theme-lab' ); ?>
 </h3>
 <!-- /wp:heading -->
 

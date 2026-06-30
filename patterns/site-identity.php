@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Site Identity
- * Slug: wp-block-theme-boilerplate/site-identity
+ * Slug: theme-lab/site-identity
  * Categories: posts
  * Description: Display site logo, title and tagline.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

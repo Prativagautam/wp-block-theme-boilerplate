@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://github.com/codersantosh
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/includes
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/includes
  */
 
 /**
@@ -24,11 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * public-facing side of the site and the admin area.
  *
  * @since      1.0.0
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/includes
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/includes
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_Block_Theme_Boilerplate_Include {
+class Theme_Lab_Include {
 
 	/**
 	 * Empty Constructor
@@ -82,8 +82,8 @@ class Wp_Block_Theme_Boilerplate_Include {
 		register_block_pattern_category(
 			'page',
 			array(
-				'label'       => _x( 'Pages', 'Block pattern category', 'wp-block-theme-boilerplate' ),
-				'description' => __( 'A collection of full page layouts.', 'wp-block-theme-boilerplate' ),
+				'label'       => _x( 'Pages', 'Block pattern category', 'theme-lab' ),
+				'description' => __( 'A collection of full page layouts.', 'theme-lab' ),
 			)
 		);
 	}
@@ -97,7 +97,7 @@ class Wp_Block_Theme_Boilerplate_Include {
 	 */
 	public function register_scripts_and_styles() {
 		/* Atomic css */
-		wp_register_style( 'atomic', WP_BLOCK_THEME_BOILERPLATE_URL . 'assets/library/atomic-css/atomic.min.css', array(), WP_BLOCK_THEME_BOILERPLATE_VERSION );
+		wp_register_style( 'atomic', THEME_LAB_URL . 'assets/library/atomic-css/atomic.min.css', array(), THEME_LAB_VERSION );
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Wp_Block_Theme_Boilerplate_Include {
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'wp-block-theme-boilerplate', WP_BLOCK_THEME_BOILERPLATE_PATH . 'languages' );
+		load_theme_textdomain( 'theme-lab', THEME_LAB_PATH . 'languages' );
 	}
 
 	/**
@@ -125,7 +125,7 @@ class Wp_Block_Theme_Boilerplate_Include {
 	public function get_settings( $key = '' ) {
 		static $cache = null;
 		if ( ! $cache ) {
-			$cache = wp_block_theme_boilerplate_get_options();
+			$cache = theme_lab_get_options();
 		}
 		if ( ! empty( $key ) ) {
 			return isset( $cache[ $key ] ) ? $cache[ $key ] : false;
@@ -146,7 +146,7 @@ class Wp_Block_Theme_Boilerplate_Include {
 		static $cache = array();
 
 		if ( ! isset( $cache[ $user_id ] ) ) {
-			$options           = wp_block_theme_boilerplate_get_user_meta( $user_id );
+			$options           = theme_lab_get_user_meta( $user_id );
 			$cache[ $user_id ] = $options;
 		}
 
@@ -158,16 +158,16 @@ class Wp_Block_Theme_Boilerplate_Include {
 	}
 }
 
-if ( ! function_exists( 'wp_block_theme_boilerplate_include' ) ) {
+if ( ! function_exists( 'theme_lab_include' ) ) {
 	/**
-	 * Return instance of  Wp_Block_Theme_Boilerplate_Include class
+	 * Return instance of  Theme_Lab_Include class
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return Wp_Block_Theme_Boilerplate_Include
+	 * @return Theme_Lab_Include
 	 */
-	function wp_block_theme_boilerplate_include() {//phpcs:ignore
-		return Wp_Block_Theme_Boilerplate_Include::get_instance();
+	function theme_lab_include() {//phpcs:ignore
+		return Theme_Lab_Include::get_instance();
 	}
-	wp_block_theme_boilerplate_include()->run();
+	theme_lab_include()->run();
 }

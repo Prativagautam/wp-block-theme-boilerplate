@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Query List
- * Slug: wp-block-theme-boilerplate/query-list
+ * Slug: theme-lab/query-list
  * Categories: query
  * Block Types: core/query
  * Description: Display a query block in a list layout.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -17,7 +17,7 @@
 <!-- wp:post-template {"align":"wide","layout":{"type":"default"}} -->
 <!-- wp:post-title {"isLink":true} /-->
 
-<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/post-meta"} /-->
+<!-- wp:pattern {"slug":"theme-lab/post-meta"} /-->
 
 <!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"clamp(15vw, 30vh, 400px)","align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} /-->
 
@@ -30,7 +30,7 @@
 
 <?php
 	// Need to include from PHP since wp:pattern not working inside registered patterns.
-	// <!-- wp:pattern {"slug":"wp-block-theme-boilerplate/pagination"} /--> .
+	// <!-- wp:pattern {"slug":"theme-lab/pagination"} /--> .
 	require 'pagination.php';
 
 	// Search-specific no-results message; fallback to generic on other archives.

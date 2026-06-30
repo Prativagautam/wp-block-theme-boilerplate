@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Search Form
- * Slug: wp-block-theme-boilerplate/search-form
+ * Slug: theme-lab/search-form
  * Categories: posts
  * Description: Display a search block, commonly used in headers, sidebars, and footers.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

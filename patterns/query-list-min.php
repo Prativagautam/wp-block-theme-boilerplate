@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Query List Minimal
- * Slug: wp-block-theme-boilerplate/query-list-min
+ * Slug: theme-lab/query-list-min
  * Categories: query
  * Block Types: core/query
  * Description: Displays a query block in a list layout with minimal content.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -50,8 +50,8 @@
 
 			<?php
 			// Need to include from PHP since wp:pattern not working
-			// <!-- wp:pattern {"slug":"wp-block-theme-boilerplate/pagination"} /-->
-			// <!-- wp:pattern {"slug":"wp-block-theme-boilerplate/hidden-query-no-results"} /--> .
+			// <!-- wp:pattern {"slug":"theme-lab/pagination"} /-->
+			// <!-- wp:pattern {"slug":"theme-lab/hidden-query-no-results"} /--> .
 			require 'pagination.php';
 			require 'hidden-query-no-results.php';
 			?>

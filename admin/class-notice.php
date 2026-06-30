@@ -9,18 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Intro
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Intro
  */
 
 /**
  * Class used to add theme notices and recommended plugin installation.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Intro
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Intro
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_Block_Theme_Boilerplate_Notice {
+class Theme_Lab_Notice {
 
 	/**
 	 * Empty Constructor
@@ -72,7 +72,7 @@ class Wp_Block_Theme_Boilerplate_Notice {
 	 * @return boolean true to load or false
 	 */
 	private function is_load_getting_started() {
-		return ! wp_block_theme_boilerplate_include()->get_settings( 'hide_get_started_notice' );
+		return ! theme_lab_include()->get_settings( 'hide_get_started_notice' );
 	}
 
 	/**
@@ -91,10 +91,10 @@ class Wp_Block_Theme_Boilerplate_Notice {
 		global $current_user;
 		$user_id = $current_user->ID;
 
-		$remove_review_notice_permanently         = wp_block_theme_boilerplate_include()->get_user_meta( $user_id, 'remove_review_notice_permanently' );
-		$remove_review_notice_temporary_date_time = wp_block_theme_boilerplate_include()->get_user_meta( $user_id, 'remove_review_notice_temporary_date_time' );
+		$remove_review_notice_permanently         = theme_lab_include()->get_user_meta( $user_id, 'remove_review_notice_permanently' );
+		$remove_review_notice_temporary_date_time = theme_lab_include()->get_user_meta( $user_id, 'remove_review_notice_temporary_date_time' );
 
-		$theme_installed_date_time = wp_block_theme_boilerplate_include()->get_settings( 'theme_installed_date_time' );
+		$theme_installed_date_time = theme_lab_include()->get_settings( 'theme_installed_date_time' );
 		$current_date_time         = time();
 		$days_since_installation   = ( $current_date_time - $theme_installed_date_time ) / ( 60 * 60 * 24 );
 
@@ -147,18 +147,18 @@ class Wp_Block_Theme_Boilerplate_Notice {
 			return;
 		}
 
-		$unique_id = WP_BLOCK_THEME_BOILERPLATE_THEME_NAME . '-notice';
+		$unique_id = THEME_LAB_THEME_NAME . '-notice';
 
 		/* Atomic CSS */
 		wp_enqueue_style( 'atomic' );
 		wp_style_add_data( 'atomic', 'rtl', 'replace' );
 
 		/*Scripts dependency files*/
-		$deps_file = WP_BLOCK_THEME_BOILERPLATE_PATH . 'build/admin/notice/notice.asset.php';
+		$deps_file = THEME_LAB_PATH . 'build/admin/notice/notice.asset.php';
 
 		/*Fallback dependency array*/
 		$dependency = array();
-		$version    = WP_BLOCK_THEME_BOILERPLATE_VERSION;
+		$version    = THEME_LAB_VERSION;
 
 		/*Set dependency and version*/
 		if ( file_exists( $deps_file ) ) {
@@ -167,24 +167,24 @@ class Wp_Block_Theme_Boilerplate_Notice {
 			$version    = $deps_file['version'];
 		}
 
-		wp_enqueue_script( $unique_id, WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/notice/notice.js', $dependency, $version, true );
-		wp_enqueue_style( $unique_id, WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/notice/notice.css', array(), $version );
+		wp_enqueue_script( $unique_id, THEME_LAB_URL . 'build/admin/notice/notice.js', $dependency, $version, true );
+		wp_enqueue_style( $unique_id, THEME_LAB_URL . 'build/admin/notice/notice.css', array(), $version );
 		wp_style_add_data( $unique_id, 'rtl', 'replace' );
 
 		/* Localize */
 		$localize = apply_filters(
-			'wp_block_theme_boilerplate_notice_localize',
+			'theme_lab_notice_localize',
 			array(
 				'version'             => $version,
 				'nonce'               => wp_create_nonce( 'wp_rest' ),
 				'rest_url'            => get_rest_url(),
-				'recommended_plugins' => wp_block_theme_boilerplate_get_recommended_plugins(),
-				'theme_info_url'      => esc_url( menu_page_url( WP_BLOCK_THEME_BOILERPLATE_THEME_NAME, false ) ),
+				'recommended_plugins' => theme_lab_get_recommended_plugins(),
+				'theme_info_url'      => esc_url( menu_page_url( THEME_LAB_THEME_NAME, false ) ),
 			)
 		);
 
-		wp_set_script_translations( $unique_id, WP_BLOCK_THEME_BOILERPLATE_THEME_NAME );
-		wp_localize_script( $unique_id, 'WpBlockThemeBoilerplateLocalize', $localize );
+		wp_set_script_translations( $unique_id, THEME_LAB_THEME_NAME );
+		wp_localize_script( $unique_id, 'ThemeLabLocalize', $localize );
 	}
 
 	/**
@@ -208,9 +208,9 @@ class Wp_Block_Theme_Boilerplate_Notice {
 	 * return void
 	 */
 	public function add_theme_data() {
-		$theme_installed_date_time = wp_block_theme_boilerplate_include()->get_settings( 'theme_installed_date_time' );
+		$theme_installed_date_time = theme_lab_include()->get_settings( 'theme_installed_date_time' );
 		if ( ! $theme_installed_date_time ) {
-			wp_block_theme_boilerplate_update_options( 'theme_installed_date_time', time() );
+			theme_lab_update_options( 'theme_installed_date_time', time() );
 		}
 	}
 
@@ -223,13 +223,13 @@ class Wp_Block_Theme_Boilerplate_Notice {
 	public function remove_theme_data() {
 
 		// Delete the option for the theme.
-		delete_option( WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME );
+		delete_option( THEME_LAB_OPTION_NAME );
 
 		// Delete the user meta for all users.
 		delete_metadata(
 			'user',
 			0,
-			WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME,
+			THEME_LAB_OPTION_NAME,
 			'',
 			true
 		);
@@ -237,13 +237,13 @@ class Wp_Block_Theme_Boilerplate_Notice {
 }
 
 /**
- * Return instance of  Wp_Block_Theme_Boilerplate_Notice class
+ * Return instance of  Theme_Lab_Notice class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Notice
+ * @return Theme_Lab_Notice
  */
-function wp_block_theme_boilerplate_notice() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Notice::get_instance();
+function theme_lab_notice() { //phpcs:ignore
+	return Theme_Lab_Notice::get_instance();
 }
-wp_block_theme_boilerplate_notice()->run();
+theme_lab_notice()->run();

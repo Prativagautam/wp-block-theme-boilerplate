@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Page Header With Post Title
- * Slug: wp-block-theme-boilerplate/single-header
+ * Slug: theme-lab/single-header
  * Block Types: core/template-part/single-header
  * Description: Page header that displays the post, page or post type title.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

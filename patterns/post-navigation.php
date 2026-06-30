@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Post Navigation
- * Slug: wp-block-theme-boilerplate/post-navigation
+ * Slug: theme-lab/post-navigation
  * Categories: posts
  * Block Types: core/template-part/post-navigation
  * Description: Display post navigation controls, commonly used within a query block in single post templates.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

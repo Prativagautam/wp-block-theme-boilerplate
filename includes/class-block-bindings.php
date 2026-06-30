@@ -9,27 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://acmeit.com/
  * @since      1.0.0
  * Requires at least: 6.5.0
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Block_Bindings
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Block_Bindings
  */
 
 /**
  * Block bindings for the theme.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Block_Bindings
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Block_Bindings
  * @author     codersantosh <codersantosh@gmail.com>
  */
 
-if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Block_Bindings' ) ) {
+if ( ! class_exists( 'Theme_Lab_Block_Bindings' ) ) {
 
 	/**
-	 * Wp_Block_Theme_Boilerplate_Block_Bindings
+	 * Theme_Lab_Block_Bindings
 	 *
-	 * @package Wp_Block_Theme_Boilerplate
+	 * @package Theme_Lab
 	 * @since 1.0.0
 	 */
-	class Wp_Block_Theme_Boilerplate_Block_Bindings {
+	class Theme_Lab_Block_Bindings {
 
 		/**
 		 * Initialize the class and set up actions.
@@ -55,18 +55,18 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Block_Bindings' ) ) {
 
 			/* Register the copyright block binding source. */
 			register_block_bindings_source(
-				'wp-block-theme-boilerplate/copyright',
+				'theme-lab/copyright',
 				array(
-					'label'              => _x( '&copy; YEAR', 'Label for the copyright placeholder in the editor', 'wp-block-theme-boilerplate' ),
+					'label'              => _x( '&copy; YEAR', 'Label for the copyright placeholder in the editor', 'theme-lab' ),
 					'get_value_callback' => array( $this, 'get_binding_data' ),
 				)
 			);
 
 			/* Register the archive-title block binding source. */
 			register_block_bindings_source(
-				'wp-block-theme-boilerplate/archive-title',
+				'theme-lab/archive-title',
 				array(
-					'label'              => _x( 'Archive title', 'Label for the archive title placeholder in the editor', 'wp-block-theme-boilerplate' ),
+					'label'              => _x( 'Archive title', 'Label for the archive title placeholder in the editor', 'theme-lab' ),
 					'get_value_callback' => array( $this, 'get_binding_data' ),
 				)
 			);
@@ -95,10 +95,10 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Block_Bindings' ) ) {
 
 			if ( 'copyright' === $source_args['key'] ) {
 				/* translators: Copyright date format, see https://www.php.net/manual/datetime.format.php */
-				$date_format  = _x( 'Y', 'copyright date format', 'wp-block-theme-boilerplate' );
+				$date_format  = _x( 'Y', 'copyright date format', 'theme-lab' );
 				$binding_data = sprintf(
 					/* translators: 1: Copyright symbol or word, 2: Date, 3: Site title */
-					__( '%1$s %2$s %3$s', 'wp-block-theme-boilerplate' ),
+					__( '%1$s %2$s %3$s', 'theme-lab' ),
 					'&copy;',
 					wp_date( $date_format ),
 					get_bloginfo( 'name' )
@@ -109,15 +109,15 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Block_Bindings' ) ) {
 				} elseif ( is_search() ) {
 					$binding_data = sprintf(
 						/* translators: %s is the search term. */
-						__( 'Search results for: "%s"', 'wp-block-theme-boilerplate' ),
+						__( 'Search results for: "%s"', 'theme-lab' ),
 						get_search_query()
 					);
 				} elseif ( is_home() ) {
-					$binding_data = __( 'Blog', 'wp-block-theme-boilerplate' );
+					$binding_data = __( 'Blog', 'theme-lab' );
 				}
 			}
 
-			return apply_filters( 'wp_block_theme_boilerplate_binding_get_binding_data', $binding_data, $source_args, $block_instance );
+			return apply_filters( 'theme_lab_binding_get_binding_data', $binding_data, $source_args, $block_instance );
 		}
 
 		/**
@@ -145,13 +145,13 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Block_Bindings' ) ) {
 }
 
 /**
- * Return instance of  Wp_Block_Theme_Boilerplate_Block_Bindings class
+ * Return instance of  Theme_Lab_Block_Bindings class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Block_Bindings
+ * @return Theme_Lab_Block_Bindings
  */
-function wp_block_theme_boilerplate_block_bindings() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Block_Bindings::get_instance();
+function theme_lab_block_bindings() { //phpcs:ignore
+	return Theme_Lab_Block_Bindings::get_instance();
 }
-wp_block_theme_boilerplate_block_bindings()->run();
+theme_lab_block_bindings()->run();

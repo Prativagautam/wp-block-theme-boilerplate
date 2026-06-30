@@ -1,16 +1,16 @@
 /* CSS */
 import './index.scss';
 
-/* global WpBlockThemeBoilerplateLocalize */
+/* global ThemeLabLocalize */
 /* eslint-disable no-console */
 
 /* WordPress */
 import apiFetch from '@wordpress/api-fetch';
 
 /* Local */
-class WpBlockThemeBoilerplatePluginApi {
+class ThemeLabPluginApi {
 	constructor() {
-		this.nonce = WpBlockThemeBoilerplateLocalize.nonce;
+		this.nonce = ThemeLabLocalize.nonce;
 		this.bindEvents();
 	}
 
@@ -18,10 +18,10 @@ class WpBlockThemeBoilerplatePluginApi {
 		document.addEventListener( 'click', ( event ) => {
 			if (
 				event.target.classList.contains(
-					'companydomain-wbtb-install-plugin'
+					'prativa-theme-lab-install-plugin'
 				)
 			) {
-				event.target.classList.add( 'companydomain-wbtb-processing' );
+				event.target.classList.add( 'prativa-theme-lab-processing' );
 				this.installPlugin( event.target );
 			}
 		} );
@@ -32,7 +32,7 @@ class WpBlockThemeBoilerplatePluginApi {
 		const plugin = JSON.parse( pluginData );
 		try {
 			const result = await apiFetch( {
-				path: 'wp-block-theme-boilerplate/v1/install-plugin',
+				path: 'theme-lab/v1/install-plugin',
 				method: 'POST',
 				data: plugin,
 				headers: {
@@ -43,7 +43,7 @@ class WpBlockThemeBoilerplatePluginApi {
 				if ( result.success ) {
 					el.innerText = el.dataset.successText;
 					el.disabled = true;
-					el.classList.remove( 'companydomain-wbtb-install-plugin' );
+					el.classList.remove( 'prativa-theme-lab-install-plugin' );
 				} else {
 					el.innerText = el.dataset.failText;
 				}
@@ -52,10 +52,10 @@ class WpBlockThemeBoilerplatePluginApi {
 			console.error( error );
 			el.innerText = el.dataset.failText;
 		}
-		el.classList.remove( 'companydomain-wbtb-processing' );
+		el.classList.remove( 'prativa-theme-lab-processing' );
 	}
 }
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	new WpBlockThemeBoilerplatePluginApi();
+	new ThemeLabPluginApi();
 } );

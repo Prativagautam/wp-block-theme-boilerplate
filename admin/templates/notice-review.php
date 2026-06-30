@@ -9,15 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Intro
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Intro
  */
 
 global $current_user;
 ?>
-<div id='companydomain-wbtb-review-notice' class="notice updated companydomain-wbtb-review-notice at-p at-pos">
-	<button class="companydomain-wbtb-rn-permanent-close notice-dismiss at-flx at-al-itm-ctr">
-		<?php esc_html_e( 'Dismiss', 'wp-block-theme-boilerplate' ); ?>
+<div id='prativa-theme-lab-review-notice' class="notice updated prativa-theme-lab-review-notice at-p at-pos">
+	<button class="prativa-theme-lab-rn-permanent-close notice-dismiss at-flx at-al-itm-ctr">
+		<?php esc_html_e( 'Dismiss', 'theme-lab' ); ?>
 	</button>
 	<p>
 		<?php
@@ -25,7 +25,7 @@ global $current_user;
 		/* Translators: %1$s current user display name. */
 			esc_html__(
 				'Howdy, %1$s! It seems that you have been using this theme for more than 15 days. We hope you are happy with everything that the theme has to offer. If you can spare a minute, please help us by leaving a review on WordPress.org. By spreading the love, we can continue to develop new amazing features in the future!',
-				'wp-block-theme-boilerplate'
+				'theme-lab'
 			),
 			'<strong>' . esc_html( $current_user->display_name ) . '</strong>'
 		);
@@ -33,24 +33,24 @@ global $current_user;
 	</p>
 
 	<div class="links">
-		<a href="https://wordpress.org/support/theme/wp-block-theme-boilerplate/reviews/#new-post" class="companydomain-wbtb-rn-temporary-close companydomain-wbtb-btn-primary button-primary at-inl-flx at-al-itm-ctr at-gap" target="_blank" rel="noopener noreferrer nofollow">
+		<a href="https://wordpress.org/support/theme/theme-lab/reviews/#new-post" class="prativa-theme-lab-rn-temporary-close prativa-theme-lab-btn-primary button-primary at-inl-flx at-al-itm-ctr at-gap" target="_blank" rel="noopener noreferrer nofollow">
 			<span class="dashicons dashicons-thumbs-up"></span>
-			<span><?php esc_html_e( 'Sure', 'wp-block-theme-boilerplate' ); ?></span>
+			<span><?php esc_html_e( 'Sure', 'theme-lab' ); ?></span>
 		</a>
 
-		<button class="companydomain-wbtb-rn-temporary-close companydomain-wbtb-btn-secondary button-primary at-inl-flx at-al-itm-ctr at-gap">
+		<button class="prativa-theme-lab-rn-temporary-close prativa-theme-lab-btn-secondary button-primary at-inl-flx at-al-itm-ctr at-gap">
 			<span class="dashicons dashicons-calendar"></span>
-			<span><?php esc_html_e( 'Maybe later', 'wp-block-theme-boilerplate' ); ?></span>
+			<span><?php esc_html_e( 'Maybe later', 'theme-lab' ); ?></span>
 		</button>
 
-		<button class="companydomain-wbtb-rn-permanent-close companydomain-wbtb-btn-default button-primary at-inl-flx at-al-itm-ctr at-gap">
+		<button class="prativa-theme-lab-rn-permanent-close prativa-theme-lab-btn-default button-primary at-inl-flx at-al-itm-ctr at-gap">
 			<span class="dashicons dashicons-smiley"></span>
-			<span><?php esc_html_e( 'I already did', 'wp-block-theme-boilerplate' ); ?></span>
+			<span><?php esc_html_e( 'I already did', 'theme-lab' ); ?></span>
 		</button>
 
-		<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/wp-block-theme-boilerplate/' ); ?>" class="companydomain-wbtb-rn-temporary-close button-secondary at-inl-flx at-al-itm-ctr at-gap" target="_blank" rel="noopener noreferrer nofollow">
+		<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/theme-lab/' ); ?>" class="prativa-theme-lab-rn-temporary-close button-secondary at-inl-flx at-al-itm-ctr at-gap" target="_blank" rel="noopener noreferrer nofollow">
 			<span class="dashicons dashicons-edit"></span>
-			<span><?php esc_html_e( 'Got theme support question?', 'wp-block-theme-boilerplate' ); ?></span>
+			<span><?php esc_html_e( 'Got theme support question?', 'theme-lab' ); ?></span>
 		</a>
 	</div>
 </div>

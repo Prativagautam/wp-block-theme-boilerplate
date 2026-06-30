@@ -2,7 +2,7 @@
 /**
  * Includes necessary files
  *
- * @package Wp_Block_Theme_Boilerplate
+ * @package Theme_Lab
  * @since 1.0.0
  */
 

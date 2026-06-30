@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Archive Page Header
- * Slug: wp-block-theme-boilerplate/list-archive-header
+ * Slug: theme-lab/list-archive-header
  * Categories: header
  * Block Types: core/template-part/list-archive-header
  * Description: Layout template for displaying the header of an archive page.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -19,7 +19,7 @@
 			style="background-position:50% 50%;background-image:url(<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/default-banner.jpg)">
 		</div>
 		<div class="wp-block-cover__inner-container">
-			<!-- wp:heading {"metadata":{"bindings":{"content":{"source":"wp-block-theme-boilerplate/archive-title","args":{"key":"archive-title"}}}}, "textAlign":"center","level":1,"style":{"typography":{"textTransform":"capitalize"}},"textColor":"default","fontSize":"xx-large"} -->
+			<!-- wp:heading {"metadata":{"bindings":{"content":{"source":"theme-lab/archive-title","args":{"key":"archive-title"}}}}, "textAlign":"center","level":1,"style":{"typography":{"textTransform":"capitalize"}},"textColor":"default","fontSize":"xx-large"} -->
 			<h1 class="wp-block-heading has-text-align-center has-default-color has-text-color has-xx-large-font-size" style="text-transform:capitalize"></h1>
 			<!-- /wp:heading -->
 		</div>

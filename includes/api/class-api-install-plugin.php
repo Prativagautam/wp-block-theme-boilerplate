@@ -9,28 +9,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Install_Plugin
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Install_Plugin
  */
 
 /**
  * Class used to install a plugin via the REST API.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Install_Plugin
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Install_Plugin
  * @author     codersantosh <codersantosh@gmail.com>
  *
- * @see Wp_Block_Theme_Boilerplate_Api
+ * @see Theme_Lab_Api
  */
-if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Install_Plugin' ) ) {
+if ( ! class_exists( 'Theme_Lab_Install_Plugin' ) ) {
 
 	/**
-	 * Wp_Block_Theme_Boilerplate_Install_Plugin
+	 * Theme_Lab_Install_Plugin
 	 *
-	 * @package Wp_Block_Theme_Boilerplate
+	 * @package Theme_Lab
 	 * @since 1.0.0
 	 */
-	class Wp_Block_Theme_Boilerplate_Install_Plugin extends Wp_Block_Theme_Boilerplate_Api {
+	class Theme_Lab_Install_Plugin extends Theme_Lab_Api {
 
 		/**
 		 * Initialize the class and set up actions.
@@ -39,7 +39,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Install_Plugin' ) ) {
 		 * @return void
 		 */
 		public function run() {
-			$this->type      = 'wp_block_theme_boilerplate_api_install_plugin';
+			$this->type      = 'theme_lab_api_install_plugin';
 			$this->rest_base = 'install-plugin';
 
 			/*Custom Rest Routes*/
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Install_Plugin' ) ) {
 		 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 		 */
 		public function install_plugin( $request ) {
-			return rest_ensure_response( wp_block_theme_boilerplate_install_plugin( $request->get_params() ) );
+			return rest_ensure_response( theme_lab_install_plugin( $request->get_params() ) );
 		}
 
 		/**
@@ -126,13 +126,13 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Install_Plugin' ) ) {
 }
 
 /**
- * Return instance of  Wp_Block_Theme_Boilerplate_Install_Plugin  class
+ * Return instance of  Theme_Lab_Install_Plugin  class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Install_Plugin
+ * @return Theme_Lab_Install_Plugin
  */
-function wp_block_theme_boilerplate_api_install_plugin() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Install_Plugin::get_instance();
+function theme_lab_api_install_plugin() { //phpcs:ignore
+	return Theme_Lab_Install_Plugin::get_instance();
 }
-wp_block_theme_boilerplate_api_install_plugin()->run();
+theme_lab_api_install_plugin()->run();

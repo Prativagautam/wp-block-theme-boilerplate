@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Single Post Both Sidebar
- * Slug: wp-block-theme-boilerplate/single-post-both-sidebar
+ * Slug: theme-lab/single-post-both-sidebar
  * Template Types: single
  * Description: A layout template for displaying a post with both left and right sidebars.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -29,7 +29,7 @@
 
 		<!-- wp:column {"width":"50%"} -->
 		<div class="wp-block-column" style="flex-basis:50%">
-			<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/hidden-single-post-content"} /-->
+			<!-- wp:pattern {"slug":"theme-lab/hidden-single-post-content"} /-->
 		</div>
 		<!-- /wp:column -->
 

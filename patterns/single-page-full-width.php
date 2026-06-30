@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Page Full Width
- * Slug: wp-block-theme-boilerplate/single-page-full-width
+ * Slug: theme-lab/single-page-full-width
  * Template Types: singular, page
  * Description: A full-width layout template for displaying a page without sidebars.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

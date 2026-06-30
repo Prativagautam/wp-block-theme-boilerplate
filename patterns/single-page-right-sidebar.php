@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Page Right Sidebar
- * Slug: wp-block-theme-boilerplate/single-page-right-sidebar
+ * Slug: theme-lab/single-page-right-sidebar
  * Template Types: singular, page
  * Description: A layout template for displaying a page with a right sidebar.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Single Full width
- * Slug: wp-block-theme-boilerplate/single-post-full-width
+ * Slug: theme-lab/single-post-full-width
  * Template Types: single
  * Description: A full-width layout template for displaying a post without sidebars.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -20,7 +20,7 @@
     <div style="height:var(--wp--preset--spacing--80)" aria-hidden="true" class="wp-block-spacer"></div>
     <!-- /wp:spacer -->
 
-	<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/hidden-single-post-content"} /-->
+	<!-- wp:pattern {"slug":"theme-lab/hidden-single-post-content"} /-->
 
 </main>
 <!-- /wp:group -->

@@ -9,29 +9,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Api_Settings
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Api_Settings
  */
 
 /**
  * Theme's settings via the REST API.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Api_Settings
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Api_Settings
  * @author     codersantosh <codersantosh@gmail.com>
  *
- * @see Wp_Block_Theme_Boilerplate_Api
+ * @see Theme_Lab_Api
  */
-if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
+if ( ! class_exists( 'Theme_Lab_Api_Settings' ) ) {
 
 	/**
-	 * Wp_Block_Theme_Boilerplate_Api_Settings
+	 * Theme_Lab_Api_Settings
 	 *
 	 * @see WP_REST_Settings_Controller
-	 * @package Wp_Block_Theme_Boilerplate
+	 * @package Theme_Lab
 	 * @since 1.0.0
 	 */
-	class Wp_Block_Theme_Boilerplate_Api_Settings extends Wp_Block_Theme_Boilerplate_Api {
+	class Theme_Lab_Api_Settings extends Theme_Lab_Api {
 
 		/**
 		 * Initialize the class and set up actions.
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 		 * @return void
 		 */
 		public function run() {
-			$this->type      = 'wp_block_theme_boilerplate_api_settings';
+			$this->type      = 'theme_lab_api_settings';
 			$this->rest_base = 'settings';
 
 			/*Custom Rest Routes*/
@@ -99,13 +99,13 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 		public function get_item( $request ) {
 			$response = array();
 
-			$saved_options = wp_block_theme_boilerplate_get_options();
+			$saved_options = theme_lab_get_options();
 
 			/* Add user meta options*/
 			global $current_user;
 			$user_id                                  = $current_user->ID;
-			$remove_review_notice_permanently         = wp_block_theme_boilerplate_include()->get_user_meta( $user_id, 'remove_review_notice_permanently' );
-			$remove_review_notice_temporary_date_time = wp_block_theme_boilerplate_include()->get_user_meta( $user_id, 'remove_review_notice_temporary_date_time' );
+			$remove_review_notice_permanently         = theme_lab_include()->get_user_meta( $user_id, 'remove_review_notice_permanently' );
+			$remove_review_notice_temporary_date_time = theme_lab_include()->get_user_meta( $user_id, 'remove_review_notice_temporary_date_time' );
 
 			$saved_options['remove_review_notice_permanently']         = $remove_review_notice_permanently;
 			$saved_options['remove_review_notice_temporary_date_time'] = $remove_review_notice_temporary_date_time;
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 				return new WP_Error(
 					'rest_invalid_stored_value',
 					/* translators: %s: Property name. */
-					sprintf( __( 'The %s property has an invalid stored value, and cannot be updated to null.', 'wp-block-theme-boilerplate' ), WP_BLOCK_THEME_BOILERPLATE_OPTION_NAME ),
+					sprintf( __( 'The %s property has an invalid stored value, and cannot be updated to null.', 'theme-lab' ), THEME_LAB_OPTION_NAME ),
 					array( 'status' => 500 )
 				);
 			}
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 			}
 
 			/* Update options */
-			wp_block_theme_boilerplate_update_options(
+			theme_lab_update_options(
 				array(
 					'hide_get_started_notice'   => $sanitized_options['hide_get_started_notice'],
 					'theme_installed_date_time' => $sanitized_options['theme_installed_date_time'],
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 			);
 
 			/* Update user meta */
-			wp_block_theme_boilerplate_update_user_meta(
+			theme_lab_update_user_meta(
 				get_current_user_id(),
 				array(
 					'remove_review_notice_permanently' => $sanitized_options['remove_review_notice_permanently'],
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 		 */
 		public function get_settings_schema() {
 			$setting_properties = apply_filters(
-				'wp_block_theme_boilerplate_options_properties',
+				'theme_lab_options_properties',
 				array(
 					'hide_get_started_notice'          => array(
 						'type' => 'boolean',
@@ -294,13 +294,13 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api_Settings' ) ) {
 }
 
 /**
- * Return instance of  Wp_Block_Theme_Boilerplate_Api_Settings class
+ * Return instance of  Theme_Lab_Api_Settings class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Api_Settings
+ * @return Theme_Lab_Api_Settings
  */
-function wp_block_theme_boilerplate_api_settings() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Api_Settings::get_instance();
+function theme_lab_api_settings() { //phpcs:ignore
+	return Theme_Lab_Api_Settings::get_instance();
 }
-wp_block_theme_boilerplate_api_settings()->run();
+theme_lab_api_settings()->run();

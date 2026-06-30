@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Archive with Right Sidebar
- * Slug: wp-block-theme-boilerplate/list-archive-right-sidebar
+ * Slug: theme-lab/list-archive-right-sidebar
  * Template Types: archive, home, search, category, tag, author, date
  * Description: Layout template for displaying archives with a right sidebar.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -19,7 +19,7 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":{"left":"var:preset|spacing|80"}}}} -->
 	<div class="wp-block-columns alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:column {"width":"70%"} -->
 <div class="wp-block-column" style="flex-basis:70%">
-<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/query-list"} /-->
+<!-- wp:pattern {"slug":"theme-lab/query-list"} /-->
 </div>
 <!-- /wp:column -->
 

@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Featured Section 1
- * Slug: wp-block-theme-boilerplate/featured-section-1
+ * Slug: theme-lab/featured-section-1
  * Categories: featured
  * Description: A layout with a title, content and button in the left column, and a Card 1 pattern in the right column.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -14,13 +14,13 @@
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|80","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"35%"} -->
-<div class="wp-block-column" style="flex-basis:35%"><!-- wp:pattern {"slug":"wp-block-theme-boilerplate/section-title-2"} /--></div>
+<div class="wp-block-column" style="flex-basis:35%"><!-- wp:pattern {"slug":"theme-lab/section-title-2"} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"65%","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column" style="flex-basis:65%"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:pattern {"slug":"wp-block-theme-boilerplate/card-1"} /--></div>
+<div class="wp-block-column"><!-- wp:pattern {"slug":"theme-lab/card-1"} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column -->
@@ -30,11 +30,11 @@
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"22px","fontStyle":"normal","fontWeight":"700","lineHeight":"1"}},"textColor":"base"} -->
-<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Free Lifetime Update', 'wp-block-theme-boilerplate' ); ?></h3>
+<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Free Lifetime Update', 'theme-lab' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}},"typography":{"lineHeight":"1.5"}},"textColor":"accent","fontSize":"small"} -->
-<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'wp-block-theme-boilerplate' ); ?></p>
+<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'theme-lab' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
@@ -48,11 +48,11 @@
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"22px","fontStyle":"normal","fontWeight":"700","lineHeight":"1"}},"textColor":"base"} -->
-<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Modern Minimal Design', 'wp-block-theme-boilerplate' ); ?></h3>
+<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Modern Minimal Design', 'theme-lab' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}},"typography":{"lineHeight":"1.5"}},"textColor":"accent","fontSize":"small"} -->
-<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'wp-block-theme-boilerplate' ); ?></p>
+<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'theme-lab' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
@@ -64,11 +64,11 @@
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"22px","fontStyle":"normal","fontWeight":"700","lineHeight":"1"}},"textColor":"base"} -->
-<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Easy Customization', 'wp-block-theme-boilerplate' ); ?></h3>
+<h3 class="wp-block-heading has-base-color has-text-color" style="font-size:22px;font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'Easy Customization', 'theme-lab' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}},"typography":{"lineHeight":"1.5"}},"textColor":"accent","fontSize":"small"} -->
-<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'wp-block-theme-boilerplate' ); ?></p>
+<p class="has-accent-color has-text-color has-link-color has-small-font-size" style="line-height:1.5"><?php esc_html_e( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatu', 'theme-lab' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>

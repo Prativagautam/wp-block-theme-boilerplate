@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/includes/api
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/includes/api
  */
 
 /**
@@ -19,26 +19,26 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Define namespace, vresion and other common properties and methods.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/includes/api
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/includes/api
  * @author     codersantosh <codersantosh@gmail.com>
  */
-if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api' ) ) {
+if ( ! class_exists( 'Theme_Lab_Api' ) ) {
 
 	/**
-	 * Wp_Block_Theme_Boilerplate_Api
+	 * Theme_Lab_Api
 	 *
-	 * @package Wp_Block_Theme_Boilerplate
+	 * @package Theme_Lab
 	 * @since 1.0.0
 	 */
-	class Wp_Block_Theme_Boilerplate_Api extends WP_REST_Controller {
+	class Theme_Lab_Api extends WP_REST_Controller {
 
 		/**
 		 * Rest route namespace.
 		 *
 		 * @var string
 		 */
-		public $namespace = 'wp-block-theme-boilerplate/';
+		public $namespace = 'theme-lab/';
 
 		/**
 		 * Rest route version.
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api' ) ) {
 		 */
 		public function __clone() {
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( "Cheatin' huh?", 'wp-block-theme-boilerplate' ), esc_html( WP_BLOCK_THEME_BOILERPLATE_VERSION ) );
+			_doing_it_wrong( __FUNCTION__, esc_html__( "Cheatin' huh?", 'theme-lab' ), esc_html( THEME_LAB_VERSION ) );
 		}
 
 		/**
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Wp_Block_Theme_Boilerplate_Api' ) ) {
 		 */
 		public function __wakeup() {
 			// Unserializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( "Cheatin' huh?", 'wp-block-theme-boilerplate' ), esc_html( WP_BLOCK_THEME_BOILERPLATE_VERSION ) );
+			_doing_it_wrong( __FUNCTION__, esc_html__( "Cheatin' huh?", 'theme-lab' ), esc_html( THEME_LAB_VERSION ) );
 		}
 	}
 }

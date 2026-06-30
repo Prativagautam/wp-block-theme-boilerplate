@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Page Both Sidebar
- * Slug: wp-block-theme-boilerplate/single-page-both-sidebar
+ * Slug: theme-lab/single-page-both-sidebar
  * Template Types: singular, page
  * Description: A layout template for displaying a page with both left and right sidebars.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 

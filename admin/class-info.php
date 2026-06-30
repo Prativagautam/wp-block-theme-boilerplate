@@ -9,18 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Info
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Info
  */
 
 /**
  * Class used to add theme menu page and content on it.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Info
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Info
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_Block_Theme_Boilerplate_Info {
+class Theme_Lab_Info {
 
 	/**
 	 * Current added Menu hook_suffix
@@ -77,7 +77,7 @@ class Wp_Block_Theme_Boilerplate_Info {
 	 * @since    1.0.0
 	 */
 	public function add_theme_menu() {
-		$this->hook_suffix[] = add_theme_page( esc_html__( 'Theme Info', 'wp-block-theme-boilerplate' ), esc_html__( 'Theme Info', 'wp-block-theme-boilerplate' ), 'edit_theme_options', WP_BLOCK_THEME_BOILERPLATE_THEME_NAME, array( $this, 'info_screen' ) );
+		$this->hook_suffix[] = add_theme_page( esc_html__( 'Theme Info', 'theme-lab' ), esc_html__( 'Theme Info', 'theme-lab' ), 'edit_theme_options', THEME_LAB_THEME_NAME, array( $this, 'info_screen' ) );
 	}
 
 	/**
@@ -95,18 +95,18 @@ class Wp_Block_Theme_Boilerplate_Info {
 			return;
 		}
 
-		$unique_id = WP_BLOCK_THEME_BOILERPLATE_THEME_NAME . '-info';
+		$unique_id = THEME_LAB_THEME_NAME . '-info';
 
 		/* Atomic CSS */
 		wp_enqueue_style( 'atomic' );
 		wp_style_add_data( 'atomic', 'rtl', 'replace' );
 
 		/*Scripts dependency files*/
-		$deps_file = WP_BLOCK_THEME_BOILERPLATE_PATH . 'build/admin/info/info.asset.php';
+		$deps_file = THEME_LAB_PATH . 'build/admin/info/info.asset.php';
 
 		/*Fallback dependency array*/
 		$dependency = array();
-		$version    = WP_BLOCK_THEME_BOILERPLATE_VERSION;
+		$version    = THEME_LAB_VERSION;
 
 		/*Set dependency and version*/
 		if ( file_exists( $deps_file ) ) {
@@ -115,14 +115,14 @@ class Wp_Block_Theme_Boilerplate_Info {
 			$version    = $deps_file['version'];
 		}
 
-		wp_enqueue_script( $unique_id, WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/info/info.js', $dependency, $version, true );
+		wp_enqueue_script( $unique_id, THEME_LAB_URL . 'build/admin/info/info.js', $dependency, $version, true );
 
-		wp_enqueue_style( $unique_id, WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/info/info.css', array(), $version );
+		wp_enqueue_style( $unique_id, THEME_LAB_URL . 'build/admin/info/info.css', array(), $version );
 		wp_style_add_data( $unique_id, 'rtl', 'replace' );
 
 		/* Localize */
 		$localize = apply_filters(
-			'wp_block_theme_boilerplate_info_localize',
+			'theme_lab_info_localize',
 			array(
 				'version'  => $version,
 				'nonce'    => wp_create_nonce( 'wp_rest' ),
@@ -130,8 +130,8 @@ class Wp_Block_Theme_Boilerplate_Info {
 			)
 		);
 
-		wp_set_script_translations( $unique_id, WP_BLOCK_THEME_BOILERPLATE_THEME_NAME );
-		wp_localize_script( $unique_id, 'WpBlockThemeBoilerplateLocalize', $localize );
+		wp_set_script_translations( $unique_id, THEME_LAB_THEME_NAME );
+		wp_localize_script( $unique_id, 'ThemeLabLocalize', $localize );
 	}
 
 	/**
@@ -149,13 +149,13 @@ class Wp_Block_Theme_Boilerplate_Info {
 }
 
 /**
- * Return instance of Wp_Block_Theme_Boilerplate_Info class
+ * Return instance of Theme_Lab_Info class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Info
+ * @return Theme_Lab_Info
  */
-function wp_block_theme_boilerplate_info() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Info::get_instance();
+function theme_lab_info() { //phpcs:ignore
+	return Theme_Lab_Info::get_instance();
 }
-wp_block_theme_boilerplate_info()->run();
+theme_lab_info()->run();

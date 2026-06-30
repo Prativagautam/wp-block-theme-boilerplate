@@ -9,18 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Editor
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Editor
  */
 
 /**
  * Class used to add CSS/JavaScript on block editor.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/Wp_Block_Theme_Boilerplate_Editor
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/Theme_Lab_Editor
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_Block_Theme_Boilerplate_Editor {
+class Theme_Lab_Editor {
 
 	/**
 	 * Empty Constructor
@@ -69,7 +69,7 @@ class Wp_Block_Theme_Boilerplate_Editor {
 	 * @since    1.0.0
 	 */
 	public function add_editor_style() {
-		add_editor_style( array( 'atomic', WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/editor/editor.css' ) );
+		add_editor_style( array( 'atomic', THEME_LAB_URL . 'build/admin/editor/editor.css' ) );
 	}
 
 	/**
@@ -81,14 +81,14 @@ class Wp_Block_Theme_Boilerplate_Editor {
 	 */
 	public function enqueue_resources() {
 
-		$unique_id = WP_BLOCK_THEME_BOILERPLATE_THEME_NAME . '-editor';
+		$unique_id = THEME_LAB_THEME_NAME . '-editor';
 
 		/*Scripts dependency files*/
-		$deps_file = WP_BLOCK_THEME_BOILERPLATE_PATH . 'build/admin/editor/editor.asset.php';
+		$deps_file = THEME_LAB_PATH . 'build/admin/editor/editor.asset.php';
 
 		/*Fallback dependency array*/
 		$dependency = array();
-		$version    = WP_BLOCK_THEME_BOILERPLATE_VERSION;
+		$version    = THEME_LAB_VERSION;
 
 		/*Set dependency and version*/
 		if ( file_exists( $deps_file ) ) {
@@ -97,11 +97,11 @@ class Wp_Block_Theme_Boilerplate_Editor {
 			$version    = $deps_file['version'];
 		}
 
-		wp_enqueue_script( $unique_id, WP_BLOCK_THEME_BOILERPLATE_URL . 'build/admin/editor/editor.js', $dependency, $version, true );
+		wp_enqueue_script( $unique_id, THEME_LAB_URL . 'build/admin/editor/editor.js', $dependency, $version, true );
 
 		/* Localize */
 		$localize = apply_filters(
-			'wp_block_theme_boilerplate_editor_localize',
+			'theme_lab_editor_localize',
 			array(
 				'version'  => $version,
 				'nonce'    => wp_create_nonce( 'wp_rest' ),
@@ -109,19 +109,19 @@ class Wp_Block_Theme_Boilerplate_Editor {
 			)
 		);
 
-		wp_set_script_translations( $unique_id, WP_BLOCK_THEME_BOILERPLATE_THEME_NAME );
-		wp_localize_script( $unique_id, 'WpBlockThemeBoilerplateLocalize', $localize );
+		wp_set_script_translations( $unique_id, THEME_LAB_THEME_NAME );
+		wp_localize_script( $unique_id, 'ThemeLabLocalize', $localize );
 	}
 }
 
 /**
- * Return instance of  Wp_Block_Theme_Boilerplate_Editor class
+ * Return instance of  Theme_Lab_Editor class
  *
  * @since 1.0.0
  *
- * @return Wp_Block_Theme_Boilerplate_Editor
+ * @return Theme_Lab_Editor
  */
-function wp_block_theme_boilerplate_editor() { //phpcs:ignore
-	return Wp_Block_Theme_Boilerplate_Editor::get_instance();
+function theme_lab_editor() { //phpcs:ignore
+	return Theme_Lab_Editor::get_instance();
 }
-wp_block_theme_boilerplate_editor()->run();
+theme_lab_editor()->run();

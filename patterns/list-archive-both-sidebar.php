@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: Archive with Both Sidebars
- * Slug: wp-block-theme-boilerplate/list-archive-both-sidebar
+ * Slug: theme-lab/list-archive-both-sidebar
  * Template Types: archive, home, search, category, tag, author, date
  * Description: Layout template for displaying archives with both left and right sidebars.
  *
- * @package    Wp_Block_Theme_Boilerplate
- * @subpackage Wp_Block_Theme_Boilerplate/patterns
+ * @package    Theme_Lab
+ * @subpackage Theme_Lab/patterns
  * @since      1.0.0
  */
 
@@ -28,7 +28,7 @@
 
 		<!-- wp:column {"width":"50%"} -->
 		<div class="wp-block-column" style="flex-basis:50%">
-			<!-- wp:pattern {"slug":"wp-block-theme-boilerplate/query-list"} /-->
+			<!-- wp:pattern {"slug":"theme-lab/query-list"} /-->
 		</div>
 		<!-- /wp:column -->
 

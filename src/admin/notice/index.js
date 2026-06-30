@@ -1,17 +1,17 @@
 /*CSS*/
 import './index.scss';
 
-/* global WpBlockThemeBoilerplateLocalize */
+/* global ThemeLabLocalize */
 /* eslint-disable no-console */
 
 /* WordPress */
 import apiFetch from '@wordpress/api-fetch';
 
 /* Local */
-class WpBlockThemeBoilerplateSettingsApi {
+class ThemeLabSettingsApi {
 	constructor() {
-		this.endpoint = 'wp-block-theme-boilerplate/v1/settings';
-		this.nonce = WpBlockThemeBoilerplateLocalize.nonce;
+		this.endpoint = 'theme-lab/v1/settings';
+		this.nonce = ThemeLabLocalize.nonce;
 		this.getSettings();
 		this.bindEvents();
 	}
@@ -35,15 +35,15 @@ class WpBlockThemeBoilerplateSettingsApi {
 		document.addEventListener( 'click', ( event ) => {
 			const target = event.target;
 			if (
-				target.closest( '.companydomain-wbtb-gsn-close' )
+				target.closest( '.prativa-theme-lab-gsn-close' )
 			) {
 				this.modifySettings( 'hide_get_started_notice', true );
 			} else if (
-				target.closest( '.companydomain-wbtb-rn-permanent-close' )
+				target.closest( '.prativa-theme-lab-rn-permanent-close' )
 			) {
 				this.modifySettings( 'remove_review_notice_permanently', true );
 			} else if (
-				target.closest( '.companydomain-wbtb-rn-temporary-close' )
+				target.closest( '.prativa-theme-lab-rn-temporary-close' )
 			) {
 				this.modifySettings(
 					'remove_review_notice_temporary_date_time',
@@ -51,10 +51,10 @@ class WpBlockThemeBoilerplateSettingsApi {
 				);
 			} else {
 				const installBtn = target.closest(
-					'.companydomain-wbtb-install-plugins'
+					'.prativa-theme-lab-install-plugins'
 				);
 				if ( installBtn ) {
-					installBtn.classList.add( 'companydomain-wbtb-processing' );
+					installBtn.classList.add( 'prativa-theme-lab-processing' );
 					this.installPlugins();
 				}
 			}
@@ -120,7 +120,7 @@ class WpBlockThemeBoilerplateSettingsApi {
 	updateUI() {
 		if ( this.settings.hide_get_started_notice ) {
 			const noticeElement = document.getElementById(
-				'companydomain-wbtb-gsn'
+				'prativa-theme-lab-gsn'
 			);
 			if ( noticeElement ) {
 				noticeElement.remove();
@@ -129,7 +129,7 @@ class WpBlockThemeBoilerplateSettingsApi {
 
 		if ( ! this.isLoadReview() ) {
 			const reviewNoticeElement = document.getElementById(
-				'companydomain-wbtb-review-notice'
+				'prativa-theme-lab-review-notice'
 			);
 			if ( reviewNoticeElement ) {
 				reviewNoticeElement.remove();
@@ -137,12 +137,12 @@ class WpBlockThemeBoilerplateSettingsApi {
 		}
 	}
 	async installPlugins() {
-		const plugins = WpBlockThemeBoilerplateLocalize.recommended_plugins;
+		const plugins = ThemeLabLocalize.recommended_plugins;
 		if ( plugins && plugins.length ) {
 			for ( const plugin of plugins ) {
 				try {
 					await apiFetch( {
-						path: 'wp-block-theme-boilerplate/v1/install-plugin',
+						path: 'theme-lab/v1/install-plugin',
 						method: 'POST',
 						data: plugin,
 						headers: {
@@ -159,11 +159,11 @@ class WpBlockThemeBoilerplateSettingsApi {
 		}
 		await this.modifySettings( 'hide_get_started_notice', true, false );
 		window.location.replace(
-			WpBlockThemeBoilerplateLocalize.theme_info_url
+			ThemeLabLocalize.theme_info_url
 		);
 	}
 }
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	new WpBlockThemeBoilerplateSettingsApi();
+	new ThemeLabSettingsApi();
 } );
