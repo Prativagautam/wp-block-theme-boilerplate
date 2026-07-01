@@ -18,7 +18,7 @@
     <div class="wp-block-group alignwide">
 
         <!-- wp:pattern {"slug":"theme-lab/site-identity"} /-->
-        <!-- wp:pattern {"slug":"theme-lab/navigation-menu"} /-->
+        <!-- wp:pattern {"slug":"theme-lab/portfolio-navigation"} /-->
 
     </div>
     <!-- /wp:group -->
