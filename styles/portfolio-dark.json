@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "title": "Portfolio Dark",
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "color": "#0B1120",
+                    "name": "Base",
+                    "slug": "base"
+                },
+                {
+                    "color": "#F8FAFC",
+                    "name": "Default",
+                    "slug": "default"
+                },
+                {
+                    "color": "#38BDF8",
+                    "name": "Primary",
+                    "slug": "primary"
+                },
+                {
+                    "color": "#1E293B",
+                    "name": "Secondary",
+                    "slug": "secondary"
+                },
+                {
+                    "color": "#334155",
+                    "name": "Tertiary",
+                    "slug": "tertiary"
+                },
+                {
+                    "color": "#94A3B8",
+                    "name": "Quaternary",
+                    "slug": "quaternary"
+                },
+                {
+                    "color": "#0F172A",
+                    "name": "Quinary",
+                    "slug": "quinary"
+                },
+                {
+                    "color": "#A78BFA",
+                    "name": "Accent",
+                    "slug": "accent"
+                }
+            ]
+        }
+    },
+    "styles": {
+        "color": {
+            "background": "var:preset|color|base",
+            "text": "var:preset|color|default"
+        }
+    }
+}

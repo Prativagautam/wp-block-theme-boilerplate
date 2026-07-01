@@ -998,7 +998,12 @@
 			"title": "Single (with right sidebar)",
 			"name": "single-right-sidebar",
 			"postTypes": ["post"]
-		}
+		},
+		{
+    "name": "portfolio-home",
+    "title": "Portfolio Home",
+    "postTypes": ["page"]
+}
 	],
 	"templateParts": [
 		{
