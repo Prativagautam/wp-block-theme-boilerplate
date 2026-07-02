@@ -49,7 +49,7 @@
         <!-- wp:group {"backgroundColor":"secondary","style":{"border":{"radius":"30px"},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-secondary-background-color has-background" style="border-radius:30px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
             <!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none"} -->
-            <figure class="wp-block-image aligncenter size-large"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/about-photo.png' ); ?>" alt="<?php esc_attr_e( 'About me photo', 'theme-lab' ); ?>"/></figure>
+            <figure class="wp-block-image aligncenter size-large"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/portfolio-about.png' ); ?>" alt="<?php esc_attr_e( 'About me photo', 'theme-lab' ); ?>"/></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:group -->

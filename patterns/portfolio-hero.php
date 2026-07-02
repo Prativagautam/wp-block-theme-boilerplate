@@ -11,13 +11,13 @@
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-base-background-color has-background">
+<div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 
-    <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-    <div class="wp-block-group alignwide">
+    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}},"verticalAlignment":"center"} -->
+    <div class="wp-block-columns alignwide are-vertically-aligned-center">
 
-        <!-- wp:group {"layout":{"type":"constrained"}} -->
-        <div class="wp-block-group">
+        <!-- wp:column {"width":"55%"} -->
+        <div class="wp-block-column" style="flex-basis:55%">
 
             <!-- wp:paragraph {"textColor":"primary","style":{"typography":{"fontWeight":"600","textTransform":"uppercase","letterSpacing":"2px"}}} -->
             <p class="has-primary-color has-text-color"><?php esc_html_e( 'Frontend Developer', 'theme-lab' ); ?></p>
@@ -44,10 +44,20 @@
             <!-- /wp:buttons -->
 
         </div>
-        <!-- /wp:group -->
+        <!-- /wp:column -->
+
+        <!-- wp:column {"width":"45%","className":"portfolio-hero-image"} -->
+<div class="wp-block-column portfolio-hero-image" style="flex-basis:45%">
+
+            <!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-large"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/portfolio-hero.png' ); ?>" alt="<?php esc_attr_e( 'Prativa Gautam', 'theme-lab' ); ?>"/></figure>
+<!-- /wp:image -->
+
+        </div>
+        <!-- /wp:column -->
 
     </div>
-    <!-- /wp:group -->
+    <!-- /wp:columns -->
 
 </div>
 <!-- /wp:group -->

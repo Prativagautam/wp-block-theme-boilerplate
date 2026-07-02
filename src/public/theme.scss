@@ -99,3 +99,25 @@ body {
         }
     }
 }
+// Portfolio Hero Image Blob
+.portfolio-hero-image {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        background-color: var(--wp--preset--color--primary);
+        border-radius: 50% 30% 70% 40% / 40% 50% 60% 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    img {
+        position: relative;
+        z-index: 1;
+    }
+}
