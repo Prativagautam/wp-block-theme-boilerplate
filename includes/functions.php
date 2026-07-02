@@ -389,6 +389,21 @@ if ( ! function_exists( 'theme_lab_update_options' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'theme_lab_get_resume_url' ) ) :
+	/**
+	 * Get the resume URL for the theme.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string Resume URL.
+	 */
+	function theme_lab_get_resume_url() {
+		$resume_url = get_theme_file_uri( 'assets/resume.pdf' );
+
+		return apply_filters( 'theme_lab_resume_url', esc_url_raw( $resume_url ) );
+	}
+endif;
+
 if ( ! function_exists( 'theme_lab_default_user_meta' ) ) :
 	/**
 	 * Get the User Default Meta.
