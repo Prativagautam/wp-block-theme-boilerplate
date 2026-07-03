@@ -13,11 +13,11 @@
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 
-    <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
-    <div class="wp-block-group alignwide">
+    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}},"verticalAlignment":"center"} -->
+    <div class="wp-block-columns alignwide are-vertically-aligned-center">
 
-        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"560px"}} -->
-        <div class="wp-block-group">
+        <!-- wp:column {"width":"55%"} -->
+        <div class="wp-block-column" style="flex-basis:55%">
 
             <!-- wp:paragraph {"textColor":"primary","style":{"typography":{"fontWeight":"600","textTransform":"uppercase","letterSpacing":"2px"}}} -->
             <p class="has-primary-color has-text-color"><?php esc_html_e( 'About Me', 'theme-lab' ); ?></p>
@@ -44,18 +44,18 @@
             <!-- /wp:buttons -->
 
         </div>
-        <!-- /wp:group -->
+        <!-- /wp:column -->
 
-        <!-- wp:group {"backgroundColor":"secondary","style":{"border":{"radius":"30px"},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-secondary-background-color has-background" style="border-radius:30px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+        <!-- wp:column {"width":"45%","className":"portfolio-about-image"} -->
+        <div class="wp-block-column portfolio-about-image" style="flex-basis:45%">
             <!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none"} -->
-            <figure class="wp-block-image aligncenter size-large"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/portfolio-about.png' ); ?>" alt="<?php esc_attr_e( 'About me photo', 'theme-lab' ); ?>"/></figure>
+            <figure class="wp-block-image aligncenter size-large"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/portfolio-about.png' ); ?>" alt="<?php esc_attr_e( 'About me photo', 'theme-lab' ); ?>"/></figure>
             <!-- /wp:image -->
         </div>
-        <!-- /wp:group -->
+        <!-- /wp:column -->
 
     </div>
-    <!-- /wp:group -->
+    <!-- /wp:columns -->
 
 </div>
 <!-- /wp:group -->

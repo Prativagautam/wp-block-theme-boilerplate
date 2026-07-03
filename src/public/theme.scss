@@ -99,17 +99,21 @@ body {
         }
     }
 }
-// Portfolio Hero Image Blob
+//Portfolio-hero image
 .portfolio-hero-image {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
 
     &::before {
         content: '';
         position: absolute;
-        width: 90%;
-        height: 90%;
+        width: 85%;
+        height: 85%;
         background-color: var(--wp--preset--color--primary);
-        border-radius: 50% 30% 70% 40% / 40% 50% 60% 50%;
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -119,5 +123,47 @@ body {
     img {
         position: relative;
         z-index: 1;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+// Portfolio About Image
+.portfolio-about-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: min(100%, 420px);
+        aspect-ratio: 1;
+        background-color: var(--wp--preset--color--primary);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    figure {
+        position: relative;
+        z-index: 1;
+        aspect-ratio: 1;
+        width: min(98%, 405px);
+        overflow: hidden;
+        border-radius: 50%;
+        transform: translateY(44px);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+        border-radius: 50%;
     }
 }
