@@ -99,35 +99,49 @@ body {
         }
     }
 }
-//Portfolio-hero image
+
+
+
 .portfolio-hero-image {
     position: relative;
+    min-height: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    min-height: 400px;
+    overflow: visible;
+  //  padding-bottom: 0;
 
     &::before {
         content: '';
         position: absolute;
-        width: 85%;
-        height: 85%;
+        top: -80px;
+        left: 0;
+        right: -100px;
+        bottom: -100px;
         background-color: var(--wp--preset--color--primary);
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        clip-path: path('M 80,0 C 50,80 120,160 70,240 C 30,310 110,380 70,460 C 40,510 75,545 80,580 C 85,610 100,595 150,600 C 200,605 250,620 300,605 C 350,590 400,615 460,618 C 500,620 550,628 575,615 C 590,605 595,580 590,555 C 585,520 595,480 590,440 C 585,380 595,300 590,240 C 585,180 595,100 590,50 C 588,20 585,5 580,0 Z');
+        // clip-path: path('M 80,0 C 50,80 120,160 70,240 C 30,310 110,380 70,460 C 40,510 75,545 80,580 C 85,610 100,595 150,600 C 200,605 250,620 300,605 C 350,590 400,615 460,618 C 500,620 550,628 580,622 C 595,618 600,605 600,555 L 600,0 Z');
         z-index: 0;
+
     }
 
-    img {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        object-fit: cover;
-    }
+
+
+img {
+    position: relative;
+    z-index: 1;
+    width: 140%;
+    height: 530px;
+    object-fit: cover;
+    object-position: center bottom;
+    align-self: flex-end;
+    margin-bottom: -20px;
+    margin-left: -20px;
 }
 
+
+
+}
 // Portfolio About Image
 .portfolio-about-image {
     position: relative;

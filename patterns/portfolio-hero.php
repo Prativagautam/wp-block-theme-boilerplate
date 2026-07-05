@@ -47,7 +47,7 @@
         <!-- /wp:column -->
 
         <!-- wp:column {"width":"45%","className":"portfolio-hero-image"} -->
-<div class="wp-block-column portfolio-hero-image" style="flex-basis:45%">
+<div class="wp-block-column portfolio-hero-image" style="flex-basis:45%; ">
 
             <!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none"} -->
 <figure class="wp-block-image aligncenter size-large" ><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/portfolio-hero.png' ); ?>" alt="<?php esc_attr_e( 'Prativa Gautam', 'theme-lab' ); ?>"/></figure>
