@@ -76,7 +76,9 @@
 <!-- wp:column {"verticalAlignment":"top","width":"50%"} -->
 <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:50%"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"position":{"type":"sticky","top":"0px"},"border":{"radius":"10px"}},"backgroundColor":"secondary","layout":{"type":"constrained"},"patternsStoreCustomCss":".wpcf7-form input:not([type=\u0022submit\u0022]),.wpcf7-form textarea{margin-block-start:15px;}.wpcf7-form textarea{margin-block-end:15px;}.wpcf7-form input:not([type=\u0022submit\u0022]){height:40px;}"} -->
 <div class="wp-block-group has-secondary-background-color has-background" style="border-radius:10px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><!-- wp:shortcode -->
-<?php esc_html_e( 'Add Contact form shortcode', 'theme-lab' ); ?>
+<!-- wp:shortcode -->
+<?php echo do_shortcode('[contact-form-7 id="84a7b3f" title="Untitled"]'); ?>
+<!-- /wp:shortcode -->
 <!-- /wp:shortcode --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
