@@ -11,7 +11,7 @@
 ?>
 <!-- wp:navigation -->
     <!-- wp:home-link {"label":"Home"} /-->
-    <!-- wp:navigation-link {"label":"About","url":"#"} /-->
-    <!-- wp:navigation-link {"label":"Projects","url":"#"} /-->
-    <!-- wp:navigation-link {"label":"Contact","url":"#"} /-->
+    <!-- wp:navigation-link {"label":"About","url":"https://wp-theme.ddev.site/about/"} /-->
+    <!-- wp:navigation-link {"label":"Projects","url":"https://wp-theme.ddev.site/projects/"} /-->
+    <!-- wp:navigation-link {"label":"Contact","url":"https://wp-theme.ddev.site/contact/"} /-->
 <!-- /wp:navigation -->

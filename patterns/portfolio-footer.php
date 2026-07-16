@@ -18,7 +18,11 @@
     <div class="wp-block-group alignwide">
 
         <!-- wp:paragraph {"textColor":"tertiary"} -->
-        <p class="has-tertiary-color has-text-color"><?php esc_html_e( '© 2026 Prativa Gautam. All rights reserved.', 'theme-lab' ); ?></p>
+<p class="has-tertiary-color has-text-color">
+    © <?php echo esc_html( date( 'Y' ) ); ?>
+    <?php echo esc_html( get_bloginfo( 'name' ) ); ?>.
+    <?php esc_html_e( 'All rights reserved.', 'theme-lab' ); ?>
+</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"textColor":"tertiary"} -->

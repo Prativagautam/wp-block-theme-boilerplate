@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since      1.0.0
  *
  * @package    Theme_Lab
- * @subpackage Theme_Lab/public
+ * @subpackage Theme_Lab/public 
  */
 
 /**

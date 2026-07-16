@@ -1003,7 +1003,22 @@
     "name": "portfolio-home",
     "title": "Portfolio Home",
     "postTypes": ["page"]
-}
+},
+{
+    "name": "portfolio-about",
+    "title": "Portfolio About",
+    "postTypes": ["page"]
+},
+{
+    "name": "portfolio-projects",
+    "title": "Portfolio Projects",
+    "postTypes": ["page"]
+},
+{
+    "name": "portfolio-contact",
+    "title": "Portfolio Contact",
+    "postTypes": ["page"]
+}  
 	],
 	"templateParts": [
 		{
