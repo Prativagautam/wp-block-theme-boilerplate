@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://github.com/codersantosh
  * @since      1.0.0
  *
- * @package    Wp_React_Plugin_Boilerplate
- * @subpackage Wp_React_Plugin_Boilerplate/includes
+ * @package    Portfolio_Manager
+ * @subpackage Portfolio_Manager/includes
  */
 
 /**
@@ -24,11 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * public-facing side of the site and the admin area.
  *
  * @since      1.0.0
- * @package    Wp_React_Plugin_Boilerplate
- * @subpackage Wp_React_Plugin_Boilerplate/includes
+ * @package    Portfolio_Manager
+ * @subpackage Portfolio_Manager/includes
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_React_Plugin_Boilerplate_Include {
+class Portfolio_Manager_Include {
 
 	/**
 	 * Gets an instance of this object.
@@ -61,7 +61,7 @@ class Wp_React_Plugin_Boilerplate_Include {
 	public function get_settings( $key = '' ) {
 		static $cache = null;
 		if ( ! $cache ) {
-			$cache = wp_react_plugin_boilerplate_get_options();
+			$cache = portfolio_manager_get_options();
 		}
 		if ( ! empty( $key ) ) {
 			return isset( $cache[ $key ] ) ? $cache[ $key ] : false;
@@ -79,7 +79,7 @@ class Wp_React_Plugin_Boilerplate_Include {
 	public function get_white_label() {
 		static $cache = null;
 		if ( ! $cache ) {
-			$cache = wp_react_plugin_boilerplate_get_white_label();
+			$cache = portfolio_manager_get_white_label();
 		}
 
 		return $cache;
@@ -94,19 +94,19 @@ class Wp_React_Plugin_Boilerplate_Include {
 	 */
 	public function register_scripts_and_styles() {
 		/* Atomic css */
-		wp_register_style( 'atomic', WP_REACT_PLUGIN_BOILERPLATE_URL . 'assets/library/atomic-css/atomic.min.css', array(), WP_REACT_PLUGIN_BOILERPLATE_VERSION );
+		wp_register_style( 'atomic', PORTFOLIO_MANAGER_URL . 'assets/library/atomic-css/atomic.min.css', array(), PORTFOLIO_MANAGER_VERSION );
 	}
 }
 
-if ( ! function_exists( 'wp_react_plugin_boilerplate_include' ) ) {
+if ( ! function_exists( 'portfolio_manager_include' ) ) {
 	/**
-	 * Return instance of  Wp_React_Plugin_Boilerplate_Include class
+	 * Return instance of  Portfolio_Manager_Include class
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return Wp_React_Plugin_Boilerplate_Include
+	 * @return Portfolio_Manager_Include
 	 */
-	function wp_react_plugin_boilerplate_include() {//phpcs:ignore
-		return Wp_React_Plugin_Boilerplate_Include::get_instance();
+	function portfolio_manager_include() {//phpcs:ignore
+		return Portfolio_Manager_Include::get_instance();
 	}
 }

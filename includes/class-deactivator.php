@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link       https://www.acmeit.org/
  * @since      1.0.0
  *
- * @package    Wp_React_Plugin_Boilerplate
- * @subpackage Wp_React_Plugin_Boilerplate/includes
+ * @package    Portfolio_Manager
+ * @subpackage Portfolio_Manager/includes
  */
 
 /**
@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Wp_React_Plugin_Boilerplate
- * @subpackage Wp_React_Plugin_Boilerplate/includes
+ * @package    Portfolio_Manager
+ * @subpackage Portfolio_Manager/includes
  * @author     codersantosh <codersantosh@gmail.com>
  */
-class Wp_React_Plugin_Boilerplate_Deactivator {
+class Portfolio_Manager_Deactivator {
 
 	/**
 	 * Fired during plugin deactivation.
@@ -34,8 +34,8 @@ class Wp_React_Plugin_Boilerplate_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-		if ( wp_react_plugin_boilerplate_get_options( 'deleteAll' ) ) {
-			delete_option( WP_REACT_PLUGIN_BOILERPLATE_OPTION_NAME );
+		if ( portfolio_manager_get_options( 'deleteAll' ) ) {
+			delete_option( PORTFOLIO_MANAGER_OPTION_NAME );
 		}
 	}
 }

@@ -5,25 +5,25 @@ AtrcApis.baseUrl({
     //don't change atrc-global-api-base-url
     key: 'atrc-global-api-base-url',
     // eslint-disable-next-line no-undef
-    url: WpReactPluginBoilerplateLocalize.rest_url,
+    url: PortfolioManagerLocalize.rest_url,
 });
 
 /* Settings */
 AtrcApis.register({
     key: 'settings',
-    path: 'wp-react-plugin-boilerplate/v1/settings',
+    path: 'portfolio-manager/v1/settings',
     type: 'settings',
 });
 
 /* Settings Local for user preferance work with Window: localStorage property */
 AtrcStore.register({
-    key: 'WpReactPluginBoilerplateLocal',
+    key: 'PortfolioManagerLocal',
     type: 'localStorage',
 });
 
 // eslint-disable-next-line no-undef
-AtrcApis.xWpNonce(WpReactPluginBoilerplateLocalize.nonce);
-AtrcRegisterStore(WpReactPluginBoilerplateLocalize.store);
+AtrcApis.xWpNonce(PortfolioManagerLocalize.nonce);
+AtrcRegisterStore(PortfolioManagerLocalize.store);
 
 import './routes';
 

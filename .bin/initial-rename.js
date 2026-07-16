@@ -23,13 +23,13 @@ const options = {
         /WpReactPluginBoilerplate/g,
     ],
     to: [
-        'your-renamed-plugin',/******************** replace with your plugin details */
-        'your_renamed_plugin',
-        'YOUR_RENAMED_PLUGIN',
-        'YOUR-RENAMED-PLUGIN',
-        'Your-Renamed-Plugin',
-        'Your_Renamed_Plugin',
-        'YourRenamedPlugin',
+        'portfolio-manager',/******************** replace with your plugin details */
+        'portfolio_manager',
+        'PORTFOLIO_MANAGER',
+        'PORTFOLIO-MANAGER',
+        'Portfolio-Manager',
+        'Portfolio_Manager',
+        'PortfolioManager',
     ],
     verbose: true,
     dry: false,
@@ -45,7 +45,7 @@ async function renamePHPFiles() {
             const baseName = path.basename(file);
             const newBaseName = baseName.replace(
                 /wp-react-plugin-boilerplate/gi,
-                'your-renamed-plugin'/******************** replace with your plugin details */
+                'portfolio-manager'/******************** replace with your plugin details */
             );
             const newFileName = path.join(dir, newBaseName);
 
