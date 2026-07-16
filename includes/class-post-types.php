@@ -32,7 +32,7 @@ class Portfolio_Manager_Post_Types {
 		$args = array(
 			'label'        => __( 'Project', 'portfolio-manager' ),
 			'labels'       => $labels,
-			'supports'     => array( 'title', 'editor', 'thumbnail' ),
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
 			'public'       => true,
 			'show_ui'      => true,
 			'show_in_rest' => true,

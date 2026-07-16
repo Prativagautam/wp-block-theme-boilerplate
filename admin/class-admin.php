@@ -179,6 +179,20 @@ class Portfolio_Manager_Admin {
 		wp_set_script_translations( PORTFOLIO_MANAGER_PLUGIN_NAME, PORTFOLIO_MANAGER_PLUGIN_NAME );
 		wp_localize_script( PORTFOLIO_MANAGER_PLUGIN_NAME, 'PortfolioManagerLocalize', $localize );
 	}
+	public function enqueue_block_editor_resources() {
+
+	$deps_file  = PORTFOLIO_MANAGER_PATH . 'build/admin/index.asset.php';
+	$dependency = array();
+	$version    = PORTFOLIO_MANAGER_VERSION;
+
+	if ( file_exists( $deps_file ) ) {
+		$deps_file  = require $deps_file;
+		$dependency = $deps_file['dependencies'];
+		$version    = $deps_file['version'];
+	}
+
+	wp_enqueue_script( PORTFOLIO_MANAGER_PLUGIN_NAME . '-block-editor', PORTFOLIO_MANAGER_URL . 'build/admin/index.js', $dependency, $version, true );
+}
 
 	/**
 	 * Get settings schema

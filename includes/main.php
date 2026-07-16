@@ -176,6 +176,7 @@ class Portfolio_Manager {
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 
 		$this->loader->add_filter( 'plugin_action_links_portfolio-manager/portfolio-manager.php', $plugin_admin, 'add_plugin_links', 10, 4 );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $plugin_admin, 'enqueue_block_editor_resources' );
 	}
 
 	/**

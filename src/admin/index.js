@@ -1,6 +1,6 @@
 /* *********===================== Setup store ======================********* */
 import { AtrcApis, AtrcStore, AtrcRegisterStore } from 'atrc/build/data';
-
+import './components/organisms/project-details-panel';
 AtrcApis.baseUrl({
     //don't change atrc-global-api-base-url
     key: 'atrc-global-api-base-url',
