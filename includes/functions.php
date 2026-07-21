@@ -93,7 +93,21 @@ if ( ! function_exists( 'portfolio_manager_update_options' ) ) :
 		update_option( PORTFOLIO_MANAGER_OPTION_NAME, $options );
 	}
 endif;
+if ( ! function_exists( 'portfolio_manager_sanitize_url' ) ) :
+	/**
+	 * Sanitize a URL setting, restricting to safe schemes only.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $url The URL to sanitize.
+	 * @return string Sanitized URL.
+	 */
+	function portfolio_manager_sanitize_url( $url ) {
+    $url = esc_url_raw( $url, array( 'http', 'https' ) );
 
+    return filter_var( $url, FILTER_VALIDATE_URL ) ? $url : '';
+}
+endif;
 
 if ( ! function_exists( 'portfolio_manager_file_system' ) ) {
 	/**
@@ -108,7 +122,7 @@ if ( ! function_exists( 'portfolio_manager_file_system' ) ) {
 	 */
 	function portfolio_manager_file_system() {
 		global $wp_filesystem;
-		if ( ! $wp_filesystem ) {
+		if  ( ! $wp_filesystem ) {
 			require_once ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'file.php';
 		}
 

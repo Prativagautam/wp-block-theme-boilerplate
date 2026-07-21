@@ -30,6 +30,7 @@ if ( ! class_exists( 'Portfolio_Manager_Api_Settings' ) ) {
 	 * @see WP_REST_Settings_Controller
 	 * @package Portfolio_Manager
 	 * @since 1.0.0
+	 * 0
 	 */
 	class Portfolio_Manager_Api_Settings extends Portfolio_Manager_Api {
 
@@ -146,7 +147,22 @@ if ( ! class_exists( 'Portfolio_Manager_Api_Settings' ) ) {
 				);
 			}
 
+
 			$sanitized_options = $this->prepare_value( $params, $schema );
+			if ( isset( $schema['properties'] ) ) {
+	foreach ( $schema['properties'] as $key => $property ) {
+		if (
+			isset( $property['sanitize_callback'] ) &&
+			is_callable( $property['sanitize_callback'] ) &&
+			isset( $sanitized_options[ $key ] )
+		) {
+			$sanitized_options[ $key ] = call_user_func(
+				$property['sanitize_callback'],
+				$sanitized_options[ $key ]
+			);
+		}
+	}
+}
 			portfolio_manager_update_options( $sanitized_options );
 
 			return $this->get_item( $request );
@@ -167,7 +183,6 @@ if ( ! class_exists( 'Portfolio_Manager_Api_Settings' ) ) {
 			if ( null !== $cached_schema ) {
 				return $cached_schema;
 			}
-
 			// If not cached, fetch the value and cache it.
 			$schema = portfolio_manager_admin()->get_settings_schema();
 
@@ -176,7 +191,7 @@ if ( ! class_exists( 'Portfolio_Manager_Api_Settings' ) ) {
 
 			return $schema;
 		}
-
+  
 		/**
 		 * Retrieves the site setting schema, conforming to JSON Schema.
 		 *

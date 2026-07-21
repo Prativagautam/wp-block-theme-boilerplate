@@ -29,19 +29,40 @@ const MainContent = () => {
 
     const { dbSettings, dbUpdateSetting } = data;
 
-    const { setting1 = '', setting2 = '' } = dbSettings;
+    const { setting1 = '', setting2 = '' , full_name = '', linkedin_url = '', resume_url = ''} = dbSettings;
 
     return (
         <AtrcContent>
             <AtrcPanelRow>
                 <AtrcControlText
+                    label={__('Full Name', 'portfolio-manager')}
+                    placeholder={__('Enter your name', 'portfolio-manager')}
+                    value={full_name}
+                    onChange={newVal => dbUpdateSetting('full_name', newVal)}
+                />
+            </AtrcPanelRow>
+            <AtrcPanelRow>
+                <AtrcControlText
+                    label={__('LinkedIn URL', 'portfolio-manager')}
+                    placeholder={__('https://linkedin.com/in/...', 'portfolio-manager')}
+                    value={linkedin_url}
+                    onChange={newVal => dbUpdateSetting('linkedin_url', newVal)}
+                />
+            </AtrcPanelRow>
+            <AtrcPanelRow>
+                <AtrcControlText
+                    label={__('Resume URL', 'portfolio-manager')}
+                    placeholder={__('https://...', 'portfolio-manager')}
+                    value={resume_url}
+                    onChange={newVal => dbUpdateSetting('resume_url', newVal)}
+                />
+            </AtrcPanelRow>
+            <AtrcPanelRow>
+                <AtrcControlText
                     label={__('Setting 1', 'portfolio-manager')}
                     placeholder={__('Enter Text', 'portfolio-manager')}
                     value={setting1}
-                    onChange={newVal =>
-                        dbUpdateSetting('setting1', newVal)
-                    }
-
+                    onChange={newVal => dbUpdateSetting('setting1', newVal)}
                 />
             </AtrcPanelRow>
             <AtrcPanelRow>
@@ -49,10 +70,7 @@ const MainContent = () => {
                     label={__('Setting 2', 'portfolio-manager')}
                     placeholder={__('Enter Another Text', 'portfolio-manager')}
                     value={setting2}
-                    onChange={newVal =>
-                        dbUpdateSetting('setting2', newVal)
-                    }
-
+                    onChange={newVal => dbUpdateSetting('setting2', newVal)}
                 />
             </AtrcPanelRow>
         </AtrcContent>

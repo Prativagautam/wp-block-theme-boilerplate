@@ -212,11 +212,23 @@ class Portfolio_Manager_Admin {
 			array(
 				/*Settings -> Settings1*/
 				'setting1'  => array(
-					'type' => 'string',
-				),
-				'setting2'  => array(
-					'type' => 'string',
-				),
+	'type' => 'string',
+),
+'setting2'  => array(
+	'type' => 'string',
+),
+/* Portfolio Manager — profile settings */
+'full_name'    => array(
+	'type' => 'string',
+),
+'linkedin_url' => array(
+	'type'              => 'string',
+	'sanitize_callback' => 'portfolio_manager_sanitize_url',
+),
+'resume_url'   => array(
+	'type'              => 'string',
+	'sanitize_callback' => 'portfolio_manager_sanitize_url',
+),
 				/*Settings -> Settings2*/
 				'setting3'  => array(
 					'type' => 'boolean',
