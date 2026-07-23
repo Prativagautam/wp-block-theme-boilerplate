@@ -29,8 +29,16 @@ const MainContent = () => {
 
     const { dbSettings, dbUpdateSetting } = data;
 
-    const { setting1 = '', setting2 = '' , full_name = '', linkedin_url = '', resume_url = ''} = dbSettings;
-
+const {
+    setting1 = '',
+    setting2 = '',
+    full_name = '',
+    linkedin_url = '',
+    resume_url = '',
+    email = '',
+    github_url = '',
+    location = '',
+} = dbSettings;
     return (
         <AtrcContent>
             <AtrcPanelRow>
@@ -57,6 +65,32 @@ const MainContent = () => {
                     onChange={newVal => dbUpdateSetting('resume_url', newVal)}
                 />
             </AtrcPanelRow>
+            <AtrcPanelRow>
+    <AtrcControlText
+        label={__('Email', 'portfolio-manager')}
+        placeholder={__('your@email.com', 'portfolio-manager')}
+        value={email}
+        onChange={newVal => dbUpdateSetting('email', newVal)}
+    />
+</AtrcPanelRow>
+
+<AtrcPanelRow>
+    <AtrcControlText
+        label={__('GitHub URL', 'portfolio-manager')}
+        placeholder={__('https://github.com/...', 'portfolio-manager')}
+        value={github_url}
+        onChange={newVal => dbUpdateSetting('github_url', newVal)}
+    />
+</AtrcPanelRow>
+
+<AtrcPanelRow>
+    <AtrcControlText
+        label={__('Location', 'portfolio-manager')}
+        placeholder={__('Kathmandu, Nepal', 'portfolio-manager')}
+        value={location}
+        onChange={newVal => dbUpdateSetting('location', newVal)}
+    />
+</AtrcPanelRow>
             <AtrcPanelRow>
                 <AtrcControlText
                     label={__('Setting 1', 'portfolio-manager')}

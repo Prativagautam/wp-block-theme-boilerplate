@@ -25,12 +25,20 @@ if ( ! function_exists( 'portfolio_manager_default_options' ) ) :
 	 */
 	function portfolio_manager_default_options() {
 		$default_theme_options = array(
-			'setting1'  => esc_html__( 'Default Setting 1', 'portfolio-manager' ),
-			'setting2'  => esc_html__( 'Default Setting 2', 'portfolio-manager' ),
-			'setting3'  => false,
-			'setting4'  => true,
-			'setting5'  => 'option-1',
-			'deleteAll' => false,
+			'setting1'     => esc_html__( 'Default Setting 1', 'portfolio-manager' ),
+		'setting2'     => esc_html__( 'Default Setting 2', 'portfolio-manager' ),
+
+		'full_name'    => '',
+		'linkedin_url' => '',
+		'resume_url'   => '',
+		'email'        => '',
+		'github_url'   => '',
+		'location'     => '',
+
+		'setting3'     => false,
+		'setting4'     => true,
+		'setting5'     => 'option-1',
+		'deleteAll'    => false,
 		);
 
 		return apply_filters( 'portfolio_manager_default_options', $default_theme_options );

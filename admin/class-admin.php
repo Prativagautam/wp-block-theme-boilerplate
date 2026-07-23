@@ -229,6 +229,19 @@ class Portfolio_Manager_Admin {
 	'type'              => 'string',
 	'sanitize_callback' => 'portfolio_manager_sanitize_url',
 ),
+'email' => array(
+	'type'              => 'string',
+	'sanitize_callback' => 'sanitize_email',
+),
+
+'github_url' => array(
+	'type'              => 'string',
+	'sanitize_callback' => 'portfolio_manager_sanitize_url',
+),
+
+'location' => array(
+	'type' => 'string',
+),
 				/*Settings -> Settings2*/
 				'setting3'  => array(
 					'type' => 'boolean',
