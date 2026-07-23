@@ -24,6 +24,38 @@
 
 
 	<!-- wp:post-content {"className":"pwp-child-reset","align":"full","layout":{"type":"constrained","contentSize":"1320px"}} /-->
+	 <!-- wp:post-content {"className":"pwp-child-reset","align":"full","layout":{"type":"constrained","contentSize":"1320px"}} /-->
+
+<?php if ( 'project' === get_post_type() ) : ?>
+	<?php
+	$github_url = get_post_meta( get_the_ID(), 'github_url', true );
+	$live_url   = get_post_meta( get_the_ID(), 'live_url', true );
+	$tech_stack = get_post_meta( get_the_ID(), 'tech_stack', true );
+	?>
+	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+		<?php if ( $github_url ) : ?>
+			<!-- wp:paragraph -->
+			<p><strong><?php esc_html_e( 'GitHub:', 'theme-lab' ); ?></strong> <a href="<?php echo esc_url( $github_url ); ?>"><?php echo esc_html( $github_url ); ?></a></p>
+			<!-- /wp:paragraph -->
+		<?php endif; ?>
+
+		<?php if ( $live_url ) : ?>
+			<!-- wp:paragraph -->
+			<p><strong><?php esc_html_e( 'Live URL:', 'theme-lab' ); ?></strong> <a href="<?php echo esc_url( $live_url ); ?>"><?php echo esc_html( $live_url ); ?></a></p>
+			<!-- /wp:paragraph -->
+		<?php endif; ?>
+
+		<?php if ( $tech_stack ) : ?>
+			<!-- wp:paragraph -->
+			<p><strong><?php esc_html_e( 'Tech Stack:', 'theme-lab' ); ?></strong> <?php echo esc_html( $tech_stack ); ?></p>
+			<!-- /wp:paragraph -->
+		<?php endif; ?>
+	</div>
+	<!-- /wp:group -->
+<?php endif; ?>
+
+<!-- wp:template-part {"slug":"post-navigation","area":"uncategorized","align":"full"} /-->
 	<!-- wp:template-part {"slug":"post-navigation","area":"uncategorized","align":"full"} /-->
 
 	<!-- wp:template-part {"slug":"comments","tagName":"section","align":"full"} /-->

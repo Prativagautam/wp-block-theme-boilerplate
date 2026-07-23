@@ -24,7 +24,18 @@
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"level":1,"textColor":"default"} -->
-            <h1 class="wp-block-heading has-default-color has-text-color"><?php esc_html_e( 'Hello, my name is Prativa Gautam', 'theme-lab' ); ?></h1>
+<?php $full_name = portfolio_manager_get_options( 'full_name' ); ?>
+<h1 class="wp-block-heading has-default-color has-text-color">
+	<?php
+	echo esc_html(
+		sprintf(
+			/* translators: %s: full name from Portfolio Manager settings */
+			__( 'Hello, my name is %s', 'theme-lab' ),
+			$full_name ? $full_name : __( 'a developer', 'theme-lab' )
+		)
+	);
+	?>
+</h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"tertiary"} -->
@@ -34,11 +45,14 @@
             <!-- wp:buttons -->
             <div class="wp-block-buttons">
                 <!-- wp:button {"backgroundColor":"primary","textColor":"base"} -->
-                <div class="wp-block-button"><a class="wp-block-button__link has-base-color has-primary-background-color has-text-color has-background wp-element-button"><?php esc_html_e( 'View Projects', 'theme-lab' ); ?></a></div>
+<div class="wp-block-button"><a href="<?php echo esc_url( home_url( '/projects/' ) ); ?>" class="wp-block-button__link has-base-color has-primary-background-color has-text-color has-background wp-element-button"><?php esc_html_e( 'View Projects', 'theme-lab' ); ?></a></div>
                 <!-- /wp:button -->
 
                 <!-- wp:button {"className":"is-style-outline","borderColor":"primary","textColor":"primary"} -->
-                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-primary-color has-text-color has-border-color has-primary-border-color wp-element-button"><?php esc_html_e( 'LinkedIn', 'theme-lab' ); ?></a></div>
+<?php $linkedin_url = portfolio_manager_get_options( 'linkedin_url' ); ?>
+<?php if ( $linkedin_url ) : ?>
+<div class="wp-block-button is-style-outline"><a href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener noreferrer" class="wp-block-button__link has-primary-color has-text-color has-border-color has-primary-border-color wp-element-button"><?php esc_html_e( 'LinkedIn', 'theme-lab' ); ?></a></div>
+<?php endif; ?>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->

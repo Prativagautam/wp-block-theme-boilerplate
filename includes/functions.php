@@ -397,11 +397,18 @@ if ( ! function_exists( 'theme_lab_get_resume_url' ) ) :
 	 *
 	 * @return string Resume URL.
 	 */
-	function theme_lab_get_resume_url() {
-		$resume_url = get_theme_file_uri( 'assets/resume.pdf' );
+function theme_lab_get_resume_url() {
 
-		return apply_filters( 'theme_lab_resume_url', esc_url_raw( $resume_url ) );
-	}
+    if ( function_exists( 'portfolio_manager_get_options' ) ) {
+        $resume_url = portfolio_manager_get_options( 'resume_url' );
+
+        if ( ! empty( $resume_url ) ) {
+            return esc_url( $resume_url );
+        }
+    }
+
+    return '';
+}
 endif;
 
 if ( ! function_exists( 'theme_lab_default_user_meta' ) ) :
